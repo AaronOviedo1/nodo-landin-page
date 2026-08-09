@@ -1,0 +1,250 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   nodo. — tokens de identidad · v1.0
+   Fuente: ~/Downloads/assets/nodo-tokens.css
+   Reglas del manual que no se rompen:
+     · Grafito ocupa el 70% de cualquier pieza.
+     · Señal nunca pasa del 5% del área.
+     · Óxido solo en errores y alertas, nunca decorativo.
+   ========================================================================== */
+
+@theme {
+  --color-grafito: #131619;
+  --color-concreto: #1b1f25;
+  --color-acero: #2e353f;
+  --color-humo: #8a929e;
+  --color-cal: #eceef1;
+  --color-senal: #ffc400;
+  --color-oxido: #d0451b;
+
+  --font-display: var(--font-archivo), sans-serif;
+  --font-label: var(--font-montserrat), sans-serif;
+
+  --ease-nodo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-marquee: marquee 48s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+
+@layer base {
+  * {
+    border-color: var(--color-acero);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  /* Lenis maneja el scroll; sin esto compiten y el desplazamiento se siente doble. */
+  html.lenis {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-color: var(--color-grafito);
+    color: var(--color-cal);
+    font-family: var(--font-display);
+    font-variation-settings: "wdth" 100, "wght" 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-senal);
+    color: var(--color-grafito);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-senal);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  /* La marca es rectilínea: nada de esquinas redondeadas por defecto. */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-grafito);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-acero);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-humo);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Escala tipográfica
+   Los tamaños del manual son de escritorio; aquí se vuelven fluidos con clamp()
+   para que 88px no reviente en un teléfono de 375px.
+   -------------------------------------------------------------------------- */
+
+@layer components {
+  .nodo-d1 {
+    font-family: var(--font-display);
+    font-variation-settings: "wdth" 118, "wght" 800;
+    font-size: clamp(2.5rem, 7.2vw, 5.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+  }
+
+  .nodo-d2 {
+    font-family: var(--font-display);
+    font-variation-settings: "wdth" 118, "wght" 800;
+    font-size: clamp(2.25rem, 5.5vw, 4rem);
+    line-height: 0.94;
+    letter-spacing: -0.04em;
+  }
+
+  .nodo-t1 {
+    font-family: var(--font-display);
+    font-variation-settings: "wdth" 116, "wght" 700;
+    font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  .nodo-t2 {
+    font-family: var(--font-display);
+    font-variation-settings: "wdth" 114, "wght" 700;
+    font-size: clamp(1.375rem, 2.4vw, 2rem);
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+  }
+
+  .nodo-p1 {
+    font-family: var(--font-display);
+    font-variation-settings: "wdth" 100, "wght" 400;
+    font-size: clamp(1rem, 1.4vw, 1.125rem);
+    line-height: 1.6;
+  }
+
+  .nodo-p2 {
+    font-family: var(--font-display);
+    font-variation-settings: "wdth" 100, "wght" 400;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .nodo-p3 {
+    font-family: var(--font-display);
+    font-variation-settings: "wdth" 100, "wght" 400;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-humo);
+  }
+
+  /* Etiqueta: Montserrat, versalitas, tracking abierto. Nunca para texto corrido. */
+  .nodo-m1 {
+    font-family: var(--font-label);
+    font-weight: 600;
+    font-size: 0.6875rem;
+    line-height: 1.18;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Wordmark tipográfico: Archivo wdth 116 / wght 800 / tracking -4.5%.
+     Se compone en HTML, nunca se usa el PNG. */
+  .nodo-wordmark {
+    font-family: var(--font-display);
+    font-variation-settings: "wdth" 116, "wght" 800;
+    letter-spacing: -0.045em;
+    line-height: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Utilidades
+   -------------------------------------------------------------------------- */
+
+@layer utilities {
+  .shell {
+    width: 100%;
+    max-width: 90rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 4rem);
+  }
+
+  /* Retícula de 1px en Acero, el tejido visual de la marca. */
+  .reticula {
+    background-image:
+      linear-gradient(to right, var(--color-acero) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-acero) 1px, transparent 1px);
+    background-size: 5rem 5rem;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Tratamiento de logos de clientes. Los archivos llegan en estados muy
+     distintos y un filtro único no sirve para todos. */
+  .logo-invert {
+    filter: invert(1) brightness(1.12);
+  }
+
+  .logo-screen {
+    mix-blend-mode: screen;
+  }
+
+  .logo-plate {
+    background-color: var(--color-cal);
+    padding: 0.625rem 0.875rem;
+  }
+
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Accesibilidad: quien pide menos movimiento no recibe ninguno.
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

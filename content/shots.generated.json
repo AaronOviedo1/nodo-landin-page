@@ -1,0 +1,111 @@
+{
+  "holidog-inn": [
+    {
+      "src": "/ui/holidog-inn/tienda-online-2.webp",
+      "alt": "Tienda online 2",
+      "width": 1600,
+      "height": 1064,
+      "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAsAA4BaJYwCw7EOJrMv1AAA/uuwxDrpZa9IfF8z/qRG7O/ry2z7MKnTrsNZMlU2nXg4Zg2WWIVMpSiV56GkiZbMvAAA"
+    },
+    {
+      "src": "/ui/holidog-inn/tienda-online-3.webp",
+      "alt": "Tienda online 3",
+      "width": 1501,
+      "height": 948,
+      "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAoAA4BaJZQCsADcrGE6DMAA/vCzVbDJnk9ECEw34bYLuzmmuXZG5iPSuvXNbx8gLBz0QtpO1TC/1vdtMitW64FAAA=="
+    },
+    {
+      "src": "/ui/holidog-inn/tienda-online.webp",
+      "alt": "Tienda online",
+      "width": 1500,
+      "height": 951,
+      "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQAgCdASoQAAoAA4BaJZACdAEQXFes55/gAP68mwtH6uctM+pn1wbVULB0NzyE56nY89sNrHIT9agwERzWZbxsS+cRxhTti52DtZmviEcY1Ad/6Px+HujdZ0B1We5/E3NUmkJIMAAAAA=="
+    },
+    {
+      "src": "/ui/holidog-inn/app-movil-ajustes.webp",
+      "alt": "app movil ajustes",
+      "width": 754,
+      "height": 1550,
+      "blurDataURL": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAABQBACdASoQACEAPulgp02pJaOiNVgIASAdCWcAAEJFW/VFLl2o7t/0MKsAAP4LgrCuA50LYbmALwetz3Lhal/qIjG8HVktjVbvHp5gYFs7o7veKqF/LiH3/U22YV/gm2rp/QpvqZ/JBeZD20jghPL5l2C/eF6S6UctxQedj3B/0HxXwAA="
+    },
+    {
+      "src": "/ui/holidog-inn/app-movil-calendario.webp",
+      "alt": "app movil calendario",
+      "width": 750,
+      "height": 1542,
+      "blurDataURL": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAwBACdASoQACEAPt1ao02opSMiNUgBEBuJZwAAZaloQtn8hGpmkuOxMkAA/QMRHTqgfvDIxcz0Od8Niy3rUDaHtZwmbUQcARmuUfJoFYgGQON38W8EBtiCh4/oOKS8P4px1QXpvo+G+UaVbuvrL6rqyq/RejOyBGJ7nD4AAAA="
+    },
+    {
+      "src": "/ui/holidog-inn/app-movil-panel.webp",
+      "alt": "app movil panel",
+      "width": 752,
+      "height": 1556,
+      "blurDataURL": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAABQBACdASoQACEAPt1YpE2opSOiNUgBEBuJZwAAgY8jhXMfx7tweNb4yP7AAP0CogJe/gIyDP24evzjHpNU7pensivwvoyxM8A9ts7mznUH9+/imlVMdsSOuQ5PfKRQX8udSCnNpZtgUgJ2Nlae78UpYWVoFjruUmQxj/zawv2q6/q8t4p13i4A"
+    },
+    {
+      "src": "/ui/holidog-inn/app-web-2.webp",
+      "alt": "app web 2",
+      "width": 1600,
+      "height": 1011,
+      "blurDataURL": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoQAAoAA4BaJZwAAp/a0iWgAP71PuWFeWo08FwwDZ/gpAIA"
+    },
+    {
+      "src": "/ui/holidog-inn/app-web-3.webp",
+      "alt": "app web 3",
+      "width": 1499,
+      "height": 948,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAoAA4BaJaQAAxfpN2tTkAD+9TpLR0GjfZPwqYn7R8Y6JG/sNwAA"
+    },
+    {
+      "src": "/ui/holidog-inn/app-web-4.webp",
+      "alt": "app web 4",
+      "width": 1504,
+      "height": 950,
+      "blurDataURL": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAoAA4BaJZwAAxfkyJ+AAP71QAdOIbkzBlACGy6euzAKAAA="
+    },
+    {
+      "src": "/ui/holidog-inn/app-web.webp",
+      "alt": "app web",
+      "width": 1600,
+      "height": 1009,
+      "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoQAAoAA4BaJZQAAxdCmySLwAD+9UCcuWE9jvmP9ioUNwFw7DnonQu8GZo9OXu5IOpkH/7MAAA="
+    }
+  ],
+  "cos": [
+    {
+      "src": "/ui/cos/cos-cotizacion-2.webp",
+      "alt": "cos cotizacion 2",
+      "width": 1501,
+      "height": 949,
+      "blurDataURL": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoQAAoAA4BaJaQAAujcAwAAAP73KQGlYlW/rPZeSBoAAAAA"
+    },
+    {
+      "src": "/ui/cos/cos-cotizaciones.webp",
+      "alt": "cos cotizaciones",
+      "width": 1505,
+      "height": 950,
+      "blurDataURL": "data:image/webp;base64,UklGRi4AAABXRUJQVlA4ICIAAAAwAQCdASoQAAoAA4BaJaQAA3AA/vSsWmU3GQtbnoYOgAAA"
+    },
+    {
+      "src": "/ui/cos/cos-gastos.webp",
+      "alt": "cos gastos",
+      "width": 1600,
+      "height": 1010,
+      "blurDataURL": "data:image/webp;base64,UklGRi4AAABXRUJQVlA4ICIAAAAwAQCdASoQAAoAA4BaJaQAA3AA/vQLb1uFGCJBIUr7AAAA"
+    },
+    {
+      "src": "/ui/cos/cos-inicio.webp",
+      "alt": "cos inicio",
+      "width": 1513,
+      "height": 948,
+      "blurDataURL": "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAABwAQCdASoQAAoAA4BaJaV9qAGIAAD+9HF64AdBEVpKLAF5sAA="
+    },
+    {
+      "src": "/ui/cos/pdf-cotizacion.webp",
+      "alt": "pdf cotizacion",
+      "width": 1600,
+      "height": 1033,
+      "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoQAAoAA4BaJaQAAv+9hlXUoAD+5kzZ1baeOqKZnogWr43Kc0Mqo/x7A++rIqkwampfpd6sDo5b8AAA"
+    }
+  ]
+}

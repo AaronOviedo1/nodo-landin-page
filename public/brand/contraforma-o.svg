@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 111 100" width="111" height="100" role="img" aria-label="Contraforma de la o">
+  <title>nodo. — contraforma de la o · versión 08</title>
+  <defs>
+    <mask id="corte" maskUnits="userSpaceOnUse" x="0" y="0" width="111" height="100">
+      <rect width="111" height="100" fill="#fff"></rect>
+      <g fill="#000">
+        <rect x="49.5" y="50" width="12" height="62" transform="rotate(180 55.5 50)"></rect>
+        <rect x="49.5" y="50" width="12" height="62" transform="rotate(60 55.5 50)"></rect>
+        <rect x="49.5" y="50" width="12" height="62" transform="rotate(-60 55.5 50)"></rect>
+      </g>
+    </mask>
+  </defs>
+  <ellipse cx="55.5" cy="50" rx="38.5" ry="33" fill="none" stroke="#ECEEF1" stroke-width="34" mask="url(#corte)"></ellipse>
+  <ellipse cx="55.5" cy="50" rx="18" ry="13" fill="#FFC400"></ellipse>
+</svg>
