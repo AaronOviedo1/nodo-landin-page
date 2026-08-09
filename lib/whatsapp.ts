@@ -3,7 +3,7 @@ import type { Lang } from '@/content/copy'
 /** Único lugar donde vive el número. Cambiarlo aquí lo cambia en toda la página. */
 export const WHATSAPP_NUMBER = '526621498888'
 export const WHATSAPP_DISPLAY = '+52 662 149 8888'
-export const EMAIL = 'hola@nodo.mx'
+export const EMAIL = 'nodo.atencion@gmail.com'
 
 /** De dónde salió el clic, para saber qué sección convierte. */
 export type CtaOrigin = 'nav' | 'hero' | 'proyecto' | 'cierre' | 'footer' | 'proceso'
