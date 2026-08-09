@@ -70,19 +70,29 @@ cae automáticamente a la reja compacta. Al agregar capturas, se promueve solo.
 
 ## Logos de clientes
 
-Los archivos llegan en estados incompatibles entre sí, así que el tratamiento se
-declara por proyecto en `content/projects.ts` (campo `treatment`):
+Los originales llegan en estados incompatibles entre sí —fondos sólidos, arte
+negro, arte blanco sobre verde— y ninguno funciona tal cual sobre Grafito. En
+vez de parchear cada caso con filtros CSS, se normalizan de raíz:
+
+```bash
+node scripts/normalize-logos.mjs
+```
+
+El script lee de `logos-clientes/` y escribe en `public/logos/`. Por logo aplica
+lo que haga falta: quitar el fondo sólido (detectado en las esquinas, con borde
+suave), llevar los tonos oscuros hacia Cal conservando los colores vivos, o
+—para HAACO, que viene sobre verde sólido— convertir la luminancia en canal
+alfa. Al final recorta el vacío sobrante.
+
+Con eso, `treatment` en `content/projects.ts` solo distingue dos casos:
 
 | Valor | Cuándo |
 |---|---|
-| `invert` | Arte negro sobre transparente |
-| `plate` | Arte a color o sobre fondo claro; lleva placa Cal detrás |
-| `raw` | Ya se ve bien sobre Grafito |
-| `screen` | Arte claro sobre fondo oscuro sólido |
-| `type` | No hay archivo; se compone un marcador tipográfico |
+| `raw` | Hay archivo y ya está listo para fondo Grafito |
+| `type` | No hay archivo; se compone un marcador tipográfico en Archivo |
 
-El logo de HAACO venía sobre verde sólido y se normalizó con
-`node scripts/fix-haaco-logo.mjs`, que convierte la luminancia en canal alfa.
+`logoWidth` nivela el peso óptico entre logos de proporciones muy distintas;
+está calibrado para que todos ronden los 40px de alto.
 
 ## Hero WebGL
 

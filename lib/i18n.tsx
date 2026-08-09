@@ -26,14 +26,12 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   // Arranca en español: todos los clientes son mexicanos. El inglés es traducción.
   const [lang, setLangState] = useState<Lang>('es')
 
-  // La preferencia se lee después de hidratar para no romper el HTML del servidor.
+  // Solo se respeta una elección explícita previa. El idioma del navegador no
+  // decide: la página abre en español siempre, y el inglés queda para quien lo
+  // pida con el toggle.
   useEffect(() => {
     const stored = window.localStorage.getItem(STORAGE_KEY)
-    if (stored === 'es' || stored === 'en') {
-      setLangState(stored)
-      return
-    }
-    if (navigator.language.toLowerCase().startsWith('en')) setLangState('en')
+    if (stored === 'es' || stored === 'en') setLangState(stored)
   }, [])
 
   useEffect(() => {

@@ -197,21 +197,6 @@
     font-variant-numeric: tabular-nums;
   }
 
-  /* Tratamiento de logos de clientes. Los archivos llegan en estados muy
-     distintos y un filtro único no sirve para todos. */
-  .logo-invert {
-    filter: invert(1) brightness(1.12);
-  }
-
-  .logo-screen {
-    mix-blend-mode: screen;
-  }
-
-  .logo-plate {
-    background-color: var(--color-cal);
-    padding: 0.625rem 0.875rem;
-  }
-
   .marquee-mask {
     -webkit-mask-image: linear-gradient(
       to right,

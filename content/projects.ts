@@ -1,15 +1,16 @@
 import shots from './shots.generated.json'
 
 /**
- * Tratamiento visual del logo. Los archivos llegan en estados muy distintos
- * y un filtro único no funciona para todos:
- *   invert → arte negro sobre transparente; se invierte a Cal.
- *   screen → arte claro sobre fondo oscuro sólido; el fondo se funde con Grafito.
- *   plate  → arte a color o sobre fondo claro; necesita una placa Cal detrás.
- *   raw    → ya se ve bien sobre Grafito.
- *   type   → no hay archivo; se compone un marcador tipográfico.
+ * Tratamiento visual del logo.
+ *   raw  → hay archivo y ya está listo para fondo Grafito.
+ *   type → no hay archivo; se compone un marcador tipográfico.
+ *
+ * Los archivos originales llegaban con fondos sólidos y arte demasiado oscuro,
+ * cada uno de una forma distinta. Antes eso se parcheaba con filtros CSS por
+ * logo; ahora se resuelve de raíz en `scripts/normalize-logos.mjs`, que quita el
+ * fondo y lleva los tonos oscuros a Cal. Por eso aquí ya solo hay dos casos.
  */
-export type LogoTreatment = 'invert' | 'screen' | 'plate' | 'raw' | 'type'
+export type LogoTreatment = 'raw' | 'type'
 
 export type Shot = {
   src: string
@@ -48,8 +49,8 @@ export const projects: Project[] = [
     id: 'holidog-inn',
     name: 'holidog inn',
     logo: '/logos/holidog-inn.png',
-    treatment: 'plate',
-    logoWidth: 132,
+    treatment: 'raw',
+    logoWidth: 76,
     year: '2025',
     summary: {
       es: 'Tienda en línea, aplicación web administrativa y aplicación móvil, las tres sobre una sola base de datos y hablándose entre sí.',
@@ -66,8 +67,8 @@ export const projects: Project[] = [
     id: 'cos-arquitectura',
     name: 'COS Arquitectura',
     logo: '/logos/cos-arquitectura.png',
-    treatment: 'invert',
-    logoWidth: 118,
+    treatment: 'raw',
+    logoWidth: 84,
     year: '2026',
     summary: {
       es: 'Administración de obras de principio a fin: cotizaciones, contratos, gastos, caja chica, cobranza y nómina, con registro de pagos asistido por IA.',
@@ -82,11 +83,9 @@ export const projects: Project[] = [
   {
     id: 'haaco-pro',
     name: 'HAACO PRO',
-    // El PNG original venía sobre verde sólido; scripts/fix-haaco-logo.mjs lo
-    // dejó en Cal sobre transparente, así que ya no necesita blend alguno.
     logo: '/logos/haaco-pro.png',
     treatment: 'raw',
-    logoWidth: 150,
+    logoWidth: 118,
     year: '2026',
     summary: {
       es: 'La misma columna vertebral de administración de obras, ajustada a los flujos de herrería, pintura e impermeabilización.',
@@ -102,8 +101,8 @@ export const projects: Project[] = [
     id: 'fresa-fit',
     name: 'Fresa Fit',
     logo: '/logos/fresa-fit.png',
-    treatment: 'invert',
-    logoWidth: 116,
+    treatment: 'raw',
+    logoWidth: 152,
     year: '2026',
     summary: {
       es: 'Toda la operación del negocio en un solo lugar, conectada a Tiendanube, Mercado Libre y TikTok Shop para sincronizar inventario y precios en las tres.',
@@ -120,7 +119,7 @@ export const projects: Project[] = [
     name: 'ClimaXpress',
     logo: '/logos/climaxpress.png',
     treatment: 'raw',
-    logoWidth: 74,
+    logoWidth: 44,
     year: '2025',
     url: 'https://climaxpress.vercel.app',
     status: 'own',
@@ -138,8 +137,8 @@ export const projects: Project[] = [
     id: 'fundacion-miika',
     name: 'Fundación Miika',
     logo: '/logos/fundacion-miika.png',
-    treatment: 'plate',
-    logoWidth: 138,
+    treatment: 'raw',
+    logoWidth: 92,
     year: '2025',
     url: 'https://www.fundacionmiika.org',
     summary: {

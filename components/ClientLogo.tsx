@@ -2,9 +2,11 @@ import Image from 'next/image'
 import type { LogoTreatment } from '@/content/projects'
 
 /**
- * Un logo de cliente normalizado para fondo Grafito.
- * Los archivos llegan en estados incompatibles entre sí, así que el tratamiento
- * se declara por proyecto en content/projects.ts en vez de aplicar un filtro único.
+ * Un logo de cliente sobre fondo Grafito.
+ *
+ * Los archivos de public/logos ya vienen sin fondo y con los tonos oscuros
+ * llevados a Cal por `scripts/normalize-logos.mjs`, así que aquí no queda
+ * ningún filtro correctivo: solo el apagado del marquee.
  */
 export default function ClientLogo({
   name,
@@ -35,18 +37,11 @@ export default function ClientLogo({
     )
   }
 
-  const treatments: Record<Exclude<LogoTreatment, 'type'>, string> = {
-    invert: 'logo-invert',
-    screen: 'logo-screen',
-    plate: 'logo-plate',
-    raw: '',
-  }
-
   return (
     <span
-      className={`inline-flex items-center justify-center ${treatments[treatment]} ${
+      className={`inline-flex items-center justify-center ${
         monochrome
-          ? 'opacity-55 grayscale transition-[filter,opacity] duration-500 ease-[var(--ease-nodo)] group-hover:opacity-100 group-hover:grayscale-0'
+          ? 'opacity-60 grayscale transition-[filter,opacity] duration-500 ease-[var(--ease-nodo)] group-hover:opacity-100 group-hover:grayscale-0'
           : ''
       } ${className}`}
     >
