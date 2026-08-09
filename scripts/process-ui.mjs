@@ -1,12 +1,17 @@
 /**
- * Procesa las capturas de las apps que viven en ui/<Proyecto>/*.png
- * y genera WebP optimizados en public/ui/<proyecto>/ junto con un
- * manifiesto (content/shots.generated.json) con dimensiones y blurDataURL.
+ * Procesa las capturas de las apps que viven en `ui/` y genera WebP optimizados
+ * en `public/ui/`, junto con un manifiesto (`content/shots.generated.json`) con
+ * dimensiones y blurDataURL.
  *
- * Volver a correr con `node scripts/process-ui.mjs` cada vez que se agreguen capturas.
+ * Cada proyecto se divide en **superficies**: las distintas interfaces que se
+ * muestran a la par en la tarjeta (escritorio, móvil, o varias aplicaciones
+ * distintas como en holidog inn). La clasificación se hace por ruta en CLASSIFY,
+ * que es el único lugar a tocar cuando lleguen capturas nuevas.
+ *
+ * Volver a correr con `node scripts/process-ui.mjs`.
  */
 import { readdir, mkdir, writeFile, stat } from 'node:fs/promises'
-import { join, extname, basename, relative } from 'node:path'
+import { join, extname, basename, relative, sep } from 'node:path'
 import sharp from 'sharp'
 
 const ROOT = process.cwd()
@@ -14,9 +19,70 @@ const SRC = join(ROOT, 'ui')
 const OUT = join(ROOT, 'public', 'ui')
 const MANIFEST = join(ROOT, 'content', 'shots.generated.json')
 
-const MAX_WIDTH = 1600
 const QUALITY = 82
+const MAX_WIDTH_DESKTOP = 1600
+const MAX_WIDTH_MOBILE = 720
 const EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp'])
+
+/**
+ * Devuelve a qué proyecto y superficie pertenece una captura, o null para
+ * descartarla. `path` es la ruta relativa a `ui/`, con separadores normalizados.
+ *
+ * `framed: true` significa que la captura ya trae su propio marco de teléfono
+ * dibujado; entonces la interfaz no le agrega uno encima.
+ */
+function classify(path) {
+  const p = path.toLowerCase()
+
+  // Las pantallas de acceso no venden nada.
+  if (/\blogin\b/.test(p)) return null
+  // Versiones de página completa: mismas pantallas, demasiado alargadas.
+  if (p.includes('/completas/')) return null
+
+  if (p.startsWith('holidog inn/cos/')) {
+    return { project: 'cos', surface: 'escritorio', kind: 'desktop' }
+  }
+  if (p.startsWith('holidog inn/')) {
+    const file = basename(p)
+    if (file.startsWith('tienda online')) {
+      return { project: 'holidog-inn', surface: 'tienda', kind: 'desktop' }
+    }
+    if (file.startsWith('app web')) {
+      return { project: 'holidog-inn', surface: 'admin', kind: 'desktop' }
+    }
+    if (file.startsWith('app movil')) {
+      // Estas ya vienen montadas dentro de un iPhone.
+      return { project: 'holidog-inn', surface: 'movil', kind: 'mobile', framed: true }
+    }
+    return null
+  }
+
+  const roots = {
+    'clima-xp': 'climaxpress',
+    fresafit: 'fresa-fit',
+    'hacco construcciones': 'haaco-pro',
+    'mlb-totals': 'mlb-totals',
+    lizzy: 'lizzy',
+  }
+
+  for (const [dir, project] of Object.entries(roots)) {
+    if (!p.startsWith(`${dir}/`)) continue
+    const sub = p.slice(dir.length + 1).split('/')[0]
+    if (sub === 'movil' || sub === 'mobile') {
+      return { project, surface: 'movil', kind: 'mobile' }
+    }
+    if (sub === 'desktop' || sub === 'escritorio') {
+      return { project, surface: 'escritorio', kind: 'desktop' }
+    }
+    // Sin subcarpeta reconocible: se decide por la proporción más adelante.
+    return { project, surface: 'escritorio', kind: 'desktop' }
+  }
+
+  return null
+}
+
+/** Orden de las superficies dentro de una tarjeta. */
+const SURFACE_ORDER = ['tienda', 'admin', 'escritorio', 'movil']
 
 const slug = (s) =>
   s
@@ -26,16 +92,14 @@ const slug = (s) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
 
-/** Recorre ui/ y devuelve { proyecto: [rutas absolutas] } usando el directorio contenedor. */
-async function collect(dir, acc = {}) {
+async function collect(dir, acc = []) {
   const entries = await readdir(dir, { withFileTypes: true })
   for (const entry of entries) {
     const full = join(dir, entry.name)
     if (entry.isDirectory()) {
       await collect(full, acc)
     } else if (EXTS.has(extname(entry.name).toLowerCase()) && !entry.name.startsWith('.')) {
-      const project = slug(basename(dir))
-      ;(acc[project] ??= []).push(full)
+      acc.push(full)
     }
   }
   return acc
@@ -49,49 +113,76 @@ async function main() {
     return
   }
 
-  const groups = await collect(SRC)
+  const files = (await collect(SRC)).sort()
+  const groups = new Map()
+  let skipped = 0
+
+  for (const file of files) {
+    const rel = relative(SRC, file).split(sep).join('/')
+    const info = classify(rel)
+    if (!info) {
+      skipped++
+      continue
+    }
+    const key = `${info.project}::${info.surface}`
+    if (!groups.has(key)) groups.set(key, { ...info, files: [] })
+    groups.get(key).files.push(file)
+  }
+
   const manifest = {}
 
-  for (const [project, files] of Object.entries(groups)) {
-    await mkdir(join(OUT, project), { recursive: true })
-    manifest[project] = []
+  for (const { project, surface, kind, framed, files: group } of groups.values()) {
+    const dir = join(OUT, project, surface)
+    await mkdir(dir, { recursive: true })
 
-    for (const file of files.sort()) {
+    const shots = []
+    for (const file of group) {
       const name = slug(basename(file, extname(file)))
-      const dest = join(OUT, project, `${name}.webp`)
+      const dest = join(dir, `${name}.webp`)
 
       const meta = await sharp(file).metadata()
-      const width = Math.min(meta.width ?? MAX_WIDTH, MAX_WIDTH)
+      const limit = kind === 'mobile' ? MAX_WIDTH_MOBILE : MAX_WIDTH_DESKTOP
+      const width = Math.min(meta.width ?? limit, limit)
 
-      const info = await sharp(file)
+      const out = await sharp(file)
         .rotate()
         .resize({ width, withoutEnlargement: true })
         .webp({ quality: QUALITY, effort: 5 })
         .toFile(dest)
 
-      // Miniatura de 16px en base64 para el placeholder difuminado de next/image.
-      const blur = await sharp(file)
-        .resize({ width: 16 })
-        .webp({ quality: 40 })
-        .toBuffer()
+      const blur = await sharp(file).resize({ width: 16 }).webp({ quality: 40 }).toBuffer()
 
-      manifest[project].push({
-        src: `/ui/${project}/${name}.webp`,
-        alt: basename(file, extname(file)),
-        width: info.width,
-        height: info.height,
+      shots.push({
+        src: `/ui/${project}/${surface}/${name}.webp`,
+        alt: basename(file, extname(file)).replace(/^\d+[-_ ]*/, ''),
+        width: out.width,
+        height: out.height,
         blurDataURL: `data:image/webp;base64,${blur.toString('base64')}`,
       })
-
-      console.log(
-        `${relative(ROOT, file)} → ${relative(ROOT, dest)} (${info.width}×${info.height}, ${Math.round(info.size / 1024)} kB)`,
-      )
     }
+
+    ;(manifest[project] ??= []).push({
+      id: surface,
+      kind,
+      ...(framed ? { framed: true } : {}),
+      shots,
+    })
+
+    console.log(
+      `${project}/${surface} · ${kind}${framed ? ' (con marco propio)' : ''} — ${shots.length} capturas`,
+    )
+  }
+
+  for (const surfaces of Object.values(manifest)) {
+    surfaces.sort(
+      (a, b) => SURFACE_ORDER.indexOf(a.id) - SURFACE_ORDER.indexOf(b.id),
+    )
   }
 
   await mkdir(join(ROOT, 'content'), { recursive: true })
   await writeFile(MANIFEST, `${JSON.stringify(manifest, null, 2)}\n`)
-  console.log(`\nManifiesto: ${relative(ROOT, MANIFEST)}`)
+  console.log(`\nDescartadas ${skipped} (accesos y páginas completas).`)
+  console.log(`Manifiesto: ${relative(ROOT, MANIFEST)}`)
 }
 
 main().catch((err) => {

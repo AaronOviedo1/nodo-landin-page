@@ -54,19 +54,41 @@ Cambiarlos ahí los cambia en toda la página.
 
 ## Capturas de las apps
 
-Las capturas originales van en `ui/<Proyecto>/*.png` (esa carpeta no se versiona,
-pesa demasiado). Para procesarlas:
+Las capturas originales van en `ui/` (esa carpeta no se versiona, pesa
+demasiado). Para procesarlas:
 
 ```bash
 node scripts/process-ui.mjs
 ```
 
-Genera WebP optimizados en `public/ui/<proyecto>/` más un manifiesto con
-dimensiones y `blurDataURL`. El nombre de la carpeta se convierte en la clave que
-`content/projects.ts` consume con `group('<proyecto>')`.
+Genera WebP optimizados en `public/ui/<proyecto>/<superficie>/` más un manifiesto
+con dimensiones y `blurDataURL`, que `content/projects.ts` consume con
+`group('<proyecto>')`.
 
-Un proyecto con capturas se muestra en formato ancho con visor; uno sin capturas
-cae automáticamente a la reja compacta. Al agregar capturas, se promueve solo.
+### Superficies
+
+Un proyecto puede tener varias **superficies**: las interfaces que se muestran a
+la par en la tarjeta. holidog inn son tres aplicaciones distintas (`tienda`,
+`admin`, `movil`); el resto suele ser `escritorio` + `movil`. Todas rotan solas
+cada 2 segundos, en paralelo, y se pausan al pasar el cursor o al salir de
+pantalla.
+
+La clasificación vive en `CLASSIFY`/`classify()` dentro del script y es **el único
+lugar a tocar** cuando lleguen capturas nuevas. Hoy descarta las pantallas de
+acceso y las versiones de página completa. Las etiquetas visibles de cada
+superficie están en `content/copy.ts` bajo `projects.surfaces`, en ambos idiomas.
+
+Reglas de presentación, todas automáticas:
+
+- Un proyecto sin capturas cae a la reja compacta; al agregarle capturas se
+  promueve solo a destacado.
+- Un proyecto con **más de una** superficie de escritorio se lleva el ancho
+  completo de la fila, porque dos ventanas apiladas harían la tarjeta más alta
+  que la pantalla.
+- Las capturas móviles reciben un marco de teléfono dibujado en CSS, salvo las
+  que ya traen el suyo (`framed: true`).
+- Con más de 8 capturas los puntos se sustituyen por una barra de avance y un
+  contador.
 
 ## Logos de clientes
 

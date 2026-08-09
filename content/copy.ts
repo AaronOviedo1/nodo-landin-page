@@ -94,6 +94,12 @@ export const copy = {
       viewShots: 'Ver capturas',
       capabilities: 'Incluye',
       shotsPending: 'Capturas en camino',
+      surfaces: {
+        tienda: 'Tienda en línea',
+        admin: 'Panel administrativo',
+        escritorio: 'Escritorio',
+        movil: 'Aplicación móvil',
+      },
     },
 
     stats: {
@@ -251,6 +257,12 @@ export const copy = {
       viewShots: 'View screens',
       capabilities: 'Includes',
       shotsPending: 'Screens coming soon',
+      surfaces: {
+        tienda: 'Online store',
+        admin: 'Admin dashboard',
+        escritorio: 'Desktop',
+        movil: 'Mobile app',
+      },
     },
 
     stats: {

@@ -20,6 +20,20 @@ export type Shot = {
   blurDataURL: string
 }
 
+/**
+ * Una interfaz del proyecto. Un mismo trabajo puede tener varias —holidog inn
+ * son tres aplicaciones distintas— y todas se muestran a la par en la tarjeta.
+ *
+ * `framed` marca las capturas que ya traen dibujado su propio marco de teléfono,
+ * para no encimarles otro.
+ */
+export type Surface = {
+  id: string
+  kind: 'desktop' | 'mobile'
+  framed?: boolean
+  shots: Shot[]
+}
+
 export type Project = {
   id: string
   name: string
@@ -32,17 +46,11 @@ export type Project = {
   status?: 'development' | 'own'
   summary: { es: string; en: string }
   capabilities: { es: string[]; en: string[] }
-  shots: Shot[]
-  /** Capturas verticales de teléfono: se muestran en un marco distinto. */
-  mobileShots?: Shot[]
+  surfaces: Surface[]
 }
 
-const group = (key: string): Shot[] => (shots as Record<string, Shot[]>)[key] ?? []
-
-const holidog = group('holidog-inn')
-const cos = group('cos')
-
-const isMobile = (s: Shot) => s.height > s.width
+const group = (key: string): Surface[] =>
+  (shots as Record<string, Surface[]>)[key] ?? []
 
 export const projects: Project[] = [
   {
@@ -60,8 +68,7 @@ export const projects: Project[] = [
       es: ['Tienda en línea', 'Panel administrativo', 'App móvil', 'Reservas y estancias'],
       en: ['Online store', 'Admin dashboard', 'Mobile app', 'Bookings and stays'],
     },
-    shots: holidog.filter((s) => !isMobile(s)),
-    mobileShots: holidog.filter(isMobile),
+    surfaces: group('holidog-inn'),
   },
   {
     id: 'cos-arquitectura',
@@ -78,7 +85,7 @@ export const projects: Project[] = [
       es: ['Control de obras', 'Pagos con IA', 'Cotizaciones', 'Nómina'],
       en: ['Project control', 'AI payments', 'Quotes', 'Payroll'],
     },
-    shots: cos.filter((s) => !isMobile(s)),
+    surfaces: group('cos'),
   },
   {
     id: 'haaco-pro',
@@ -95,7 +102,7 @@ export const projects: Project[] = [
       es: ['Recubrimientos', 'Control de gastos', 'Cotizaciones', 'Cobranza'],
       en: ['Coatings', 'Expense control', 'Quotes', 'Collections'],
     },
-    shots: group('haaco'),
+    surfaces: group('haaco-pro'),
   },
   {
     id: 'fresa-fit',
@@ -112,7 +119,7 @@ export const projects: Project[] = [
       es: ['Tiendanube', 'Mercado Libre', 'TikTok Shop', 'Inventario sincronizado'],
       en: ['Tiendanube', 'Mercado Libre', 'TikTok Shop', 'Synced inventory'],
     },
-    shots: group('fresa-fit'),
+    surfaces: group('fresa-fit'),
   },
   {
     id: 'climaxpress',
@@ -131,7 +138,7 @@ export const projects: Project[] = [
       es: ['Rentas y entregas', 'WhatsApp', 'Rutas en mapa', 'Inventario'],
       en: ['Rentals and delivery', 'WhatsApp', 'Map routing', 'Inventory'],
     },
-    shots: group('climaxpress'),
+    surfaces: group('climaxpress'),
   },
   {
     id: 'fundacion-miika',
@@ -149,7 +156,7 @@ export const projects: Project[] = [
       es: ['Sitio institucional', 'Difusión', 'Contenido'],
       en: ['Institutional site', 'Outreach', 'Content'],
     },
-    shots: group('fundacion-miika'),
+    surfaces: group('fundacion-miika'),
   },
   {
     id: 'lizzy',
@@ -166,7 +173,7 @@ export const projects: Project[] = [
       es: ['Marketplace', 'Doble rol', 'Web y móvil'],
       en: ['Marketplace', 'Dual role', 'Web and mobile'],
     },
-    shots: group('lizzy'),
+    surfaces: group('lizzy'),
   },
   {
     id: 'mlb-totals',
@@ -183,7 +190,7 @@ export const projects: Project[] = [
       es: ['Modelo predictivo', 'Datos históricos', 'Backtesting'],
       en: ['Predictive model', 'Historical data', 'Backtesting'],
     },
-    shots: group('mlb-totals'),
+    surfaces: group('mlb-totals'),
   },
 ]
 

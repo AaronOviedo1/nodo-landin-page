@@ -1,111 +1,682 @@
 {
   "holidog-inn": [
     {
-      "src": "/ui/holidog-inn/tienda-online-2.webp",
-      "alt": "Tienda online 2",
-      "width": 1600,
-      "height": 1064,
-      "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAsAA4BaJYwCw7EOJrMv1AAA/uuwxDrpZa9IfF8z/qRG7O/ry2z7MKnTrsNZMlU2nXg4Zg2WWIVMpSiV56GkiZbMvAAA"
+      "id": "tienda",
+      "kind": "desktop",
+      "shots": [
+        {
+          "src": "/ui/holidog-inn/tienda/tienda-online-2.webp",
+          "alt": "Tienda online 2",
+          "width": 1600,
+          "height": 1064,
+          "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAsAA4BaJYwCw7EOJrMv1AAA/uuwxDrpZa9IfF8z/qRG7O/ry2z7MKnTrsNZMlU2nXg4Zg2WWIVMpSiV56GkiZbMvAAA"
+        },
+        {
+          "src": "/ui/holidog-inn/tienda/tienda-online-3.webp",
+          "alt": "Tienda online 3",
+          "width": 1501,
+          "height": 948,
+          "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAoAA4BaJZQCsADcrGE6DMAA/vCzVbDJnk9ECEw34bYLuzmmuXZG5iPSuvXNbx8gLBz0QtpO1TC/1vdtMitW64FAAA=="
+        },
+        {
+          "src": "/ui/holidog-inn/tienda/tienda-online.webp",
+          "alt": "Tienda online",
+          "width": 1500,
+          "height": 951,
+          "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQAgCdASoQAAoAA4BaJZACdAEQXFes55/gAP68mwtH6uctM+pn1wbVULB0NzyE56nY89sNrHIT9agwERzWZbxsS+cRxhTti52DtZmviEcY1Ad/6Px+HujdZ0B1We5/E3NUmkJIMAAAAA=="
+        }
+      ]
     },
     {
-      "src": "/ui/holidog-inn/tienda-online-3.webp",
-      "alt": "Tienda online 3",
-      "width": 1501,
-      "height": 948,
-      "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAoAA4BaJZQCsADcrGE6DMAA/vCzVbDJnk9ECEw34bYLuzmmuXZG5iPSuvXNbx8gLBz0QtpO1TC/1vdtMitW64FAAA=="
+      "id": "admin",
+      "kind": "desktop",
+      "shots": [
+        {
+          "src": "/ui/holidog-inn/admin/app-web-2.webp",
+          "alt": "app web 2",
+          "width": 1600,
+          "height": 1011,
+          "blurDataURL": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoQAAoAA4BaJZwAAp/a0iWgAP71PuWFeWo08FwwDZ/gpAIA"
+        },
+        {
+          "src": "/ui/holidog-inn/admin/app-web-3.webp",
+          "alt": "app web 3",
+          "width": 1499,
+          "height": 948,
+          "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAoAA4BaJaQAAxfpN2tTkAD+9TpLR0GjfZPwqYn7R8Y6JG/sNwAA"
+        },
+        {
+          "src": "/ui/holidog-inn/admin/app-web-4.webp",
+          "alt": "app web 4",
+          "width": 1504,
+          "height": 950,
+          "blurDataURL": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAoAA4BaJZwAAxfkyJ+AAP71QAdOIbkzBlACGy6euzAKAAA="
+        },
+        {
+          "src": "/ui/holidog-inn/admin/app-web.webp",
+          "alt": "app web",
+          "width": 1600,
+          "height": 1009,
+          "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoQAAoAA4BaJZQAAxdCmySLwAD+9UCcuWE9jvmP9ioUNwFw7DnonQu8GZo9OXu5IOpkH/7MAAA="
+        }
+      ]
     },
     {
-      "src": "/ui/holidog-inn/tienda-online.webp",
-      "alt": "Tienda online",
-      "width": 1500,
-      "height": 951,
-      "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQAgCdASoQAAoAA4BaJZACdAEQXFes55/gAP68mwtH6uctM+pn1wbVULB0NzyE56nY89sNrHIT9agwERzWZbxsS+cRxhTti52DtZmviEcY1Ad/6Px+HujdZ0B1We5/E3NUmkJIMAAAAA=="
-    },
-    {
-      "src": "/ui/holidog-inn/app-movil-ajustes.webp",
-      "alt": "app movil ajustes",
-      "width": 754,
-      "height": 1550,
-      "blurDataURL": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAABQBACdASoQACEAPulgp02pJaOiNVgIASAdCWcAAEJFW/VFLl2o7t/0MKsAAP4LgrCuA50LYbmALwetz3Lhal/qIjG8HVktjVbvHp5gYFs7o7veKqF/LiH3/U22YV/gm2rp/QpvqZ/JBeZD20jghPL5l2C/eF6S6UctxQedj3B/0HxXwAA="
-    },
-    {
-      "src": "/ui/holidog-inn/app-movil-calendario.webp",
-      "alt": "app movil calendario",
-      "width": 750,
-      "height": 1542,
-      "blurDataURL": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAwBACdASoQACEAPt1ao02opSMiNUgBEBuJZwAAZaloQtn8hGpmkuOxMkAA/QMRHTqgfvDIxcz0Od8Niy3rUDaHtZwmbUQcARmuUfJoFYgGQON38W8EBtiCh4/oOKS8P4px1QXpvo+G+UaVbuvrL6rqyq/RejOyBGJ7nD4AAAA="
-    },
-    {
-      "src": "/ui/holidog-inn/app-movil-panel.webp",
-      "alt": "app movil panel",
-      "width": 752,
-      "height": 1556,
-      "blurDataURL": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAABQBACdASoQACEAPt1YpE2opSOiNUgBEBuJZwAAgY8jhXMfx7tweNb4yP7AAP0CogJe/gIyDP24evzjHpNU7pensivwvoyxM8A9ts7mznUH9+/imlVMdsSOuQ5PfKRQX8udSCnNpZtgUgJ2Nlae78UpYWVoFjruUmQxj/zawv2q6/q8t4p13i4A"
-    },
-    {
-      "src": "/ui/holidog-inn/app-web-2.webp",
-      "alt": "app web 2",
-      "width": 1600,
-      "height": 1011,
-      "blurDataURL": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoQAAoAA4BaJZwAAp/a0iWgAP71PuWFeWo08FwwDZ/gpAIA"
-    },
-    {
-      "src": "/ui/holidog-inn/app-web-3.webp",
-      "alt": "app web 3",
-      "width": 1499,
-      "height": 948,
-      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAoAA4BaJaQAAxfpN2tTkAD+9TpLR0GjfZPwqYn7R8Y6JG/sNwAA"
-    },
-    {
-      "src": "/ui/holidog-inn/app-web-4.webp",
-      "alt": "app web 4",
-      "width": 1504,
-      "height": 950,
-      "blurDataURL": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAoAA4BaJZwAAxfkyJ+AAP71QAdOIbkzBlACGy6euzAKAAA="
-    },
-    {
-      "src": "/ui/holidog-inn/app-web.webp",
-      "alt": "app web",
-      "width": 1600,
-      "height": 1009,
-      "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoQAAoAA4BaJZQAAxdCmySLwAD+9UCcuWE9jvmP9ioUNwFw7DnonQu8GZo9OXu5IOpkH/7MAAA="
+      "id": "movil",
+      "kind": "mobile",
+      "framed": true,
+      "shots": [
+        {
+          "src": "/ui/holidog-inn/movil/app-movil-ajustes.webp",
+          "alt": "app movil ajustes",
+          "width": 720,
+          "height": 1480,
+          "blurDataURL": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAABQBACdASoQACEAPulgp02pJaOiNVgIASAdCWcAAEJFW/VFLl2o7t/0MKsAAP4LgrCuA50LYbmALwetz3Lhal/qIjG8HVktjVbvHp5gYFs7o7veKqF/LiH3/U22YV/gm2rp/QpvqZ/JBeZD20jghPL5l2C/eF6S6UctxQedj3B/0HxXwAA="
+        },
+        {
+          "src": "/ui/holidog-inn/movil/app-movil-calendario.webp",
+          "alt": "app movil calendario",
+          "width": 720,
+          "height": 1480,
+          "blurDataURL": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAwBACdASoQACEAPt1ao02opSMiNUgBEBuJZwAAZaloQtn8hGpmkuOxMkAA/QMRHTqgfvDIxcz0Od8Niy3rUDaHtZwmbUQcARmuUfJoFYgGQON38W8EBtiCh4/oOKS8P4px1QXpvo+G+UaVbuvrL6rqyq/RejOyBGJ7nD4AAAA="
+        },
+        {
+          "src": "/ui/holidog-inn/movil/app-movil-panel.webp",
+          "alt": "app movil panel",
+          "width": 720,
+          "height": 1490,
+          "blurDataURL": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAABQBACdASoQACEAPt1YpE2opSOiNUgBEBuJZwAAgY8jhXMfx7tweNb4yP7AAP0CogJe/gIyDP24evzjHpNU7pensivwvoyxM8A9ts7mznUH9+/imlVMdsSOuQ5PfKRQX8udSCnNpZtgUgJ2Nlae78UpYWVoFjruUmQxj/zawv2q6/q8t4p13i4A"
+        }
+      ]
     }
   ],
   "cos": [
     {
-      "src": "/ui/cos/cos-cotizacion-2.webp",
-      "alt": "cos cotizacion 2",
-      "width": 1501,
-      "height": 949,
-      "blurDataURL": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoQAAoAA4BaJaQAAujcAwAAAP73KQGlYlW/rPZeSBoAAAAA"
+      "id": "escritorio",
+      "kind": "desktop",
+      "shots": [
+        {
+          "src": "/ui/cos/escritorio/cos-cotizacion-2.webp",
+          "alt": "cos cotizacion 2",
+          "width": 1501,
+          "height": 949,
+          "blurDataURL": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoQAAoAA4BaJaQAAujcAwAAAP73KQGlYlW/rPZeSBoAAAAA"
+        },
+        {
+          "src": "/ui/cos/escritorio/cos-cotizaciones.webp",
+          "alt": "cos cotizaciones",
+          "width": 1505,
+          "height": 950,
+          "blurDataURL": "data:image/webp;base64,UklGRi4AAABXRUJQVlA4ICIAAAAwAQCdASoQAAoAA4BaJaQAA3AA/vSsWmU3GQtbnoYOgAAA"
+        },
+        {
+          "src": "/ui/cos/escritorio/cos-gastos.webp",
+          "alt": "cos gastos",
+          "width": 1600,
+          "height": 1010,
+          "blurDataURL": "data:image/webp;base64,UklGRi4AAABXRUJQVlA4ICIAAAAwAQCdASoQAAoAA4BaJaQAA3AA/vQLb1uFGCJBIUr7AAAA"
+        },
+        {
+          "src": "/ui/cos/escritorio/cos-inicio.webp",
+          "alt": "cos inicio",
+          "width": 1513,
+          "height": 948,
+          "blurDataURL": "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAABwAQCdASoQAAoAA4BaJaV9qAGIAAD+9HF64AdBEVpKLAF5sAA="
+        },
+        {
+          "src": "/ui/cos/escritorio/pdf-cotizacion.webp",
+          "alt": "pdf cotizacion",
+          "width": 1600,
+          "height": 1033,
+          "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoQAAoAA4BaJaQAAv+9hlXUoAD+5kzZ1baeOqKZnogWr43Kc0Mqo/x7A++rIqkwampfpd6sDo5b8AAA"
+        }
+      ]
+    }
+  ],
+  "climaxpress": [
+    {
+      "id": "escritorio",
+      "kind": "desktop",
+      "shots": [
+        {
+          "src": "/ui/climaxpress/escritorio/01-dashboard-hoy.webp",
+          "alt": "dashboard-hoy",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoQAAoAA4BaJYwCdAEPSaTDgAD8PlZneZVo7nVovsCM4lqHZ5S+ls8hhfZaAt/oaY5DM+begRgAAA=="
+        },
+        {
+          "src": "/ui/climaxpress/escritorio/02-rentas.webp",
+          "alt": "rentas",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoQAAoAA4BaJYwCdAEO/dgwcAD8PkWWl42qcXRdhN0OsS1LwuqNktg8A/vMEAAA"
+        },
+        {
+          "src": "/ui/climaxpress/escritorio/03-calendario.webp",
+          "alt": "calendario",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADwAQCdASoQAAoAA4BaJZQCdH8AGBpOYQAA/ce9L0URxsAY6ZRitK20+4D4AA=="
+        },
+        {
+          "src": "/ui/climaxpress/escritorio/04-reportes.webp",
+          "alt": "reportes",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoQAAoAA4BaJYwCdAEPAbCcZAD9x70vRRDsoBzrnUWO5x0ZFBbmtErLO9yyRpXli68AAA=="
+        },
+        {
+          "src": "/ui/climaxpress/escritorio/05-inventario.webp",
+          "alt": "inventario",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoQAAoAA4BaJZQCdAD1dSYYAPw/MoX0tZr7ZZmwwjZQGldZjqcYhxIgAAA="
+        },
+        {
+          "src": "/ui/climaxpress/escritorio/06-ruta.webp",
+          "alt": "ruta",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAoAA4BaJZQCdAEO9qgYAAD8PxXh4bR8SGazSPHGo16CNK8r8QAA"
+        },
+        {
+          "src": "/ui/climaxpress/escritorio/07-clientes.webp",
+          "alt": "clientes",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADwAQCdASoQAAoAA4BaJZQCdH8AGr/2hPAA/D8yhfTQorFRp5DbiTZ6UsjTAAAA"
+        },
+        {
+          "src": "/ui/climaxpress/escritorio/08-nueva-renta.webp",
+          "alt": "nueva-renta",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoQAAoAA4BaJZQCdAD1dw7FsAAA/D5FlprbI+IjNdwRZk6EbxTPU881cGTSsgAA"
+        }
+      ]
     },
     {
-      "src": "/ui/cos/cos-cotizaciones.webp",
-      "alt": "cos cotizaciones",
-      "width": 1505,
-      "height": 950,
-      "blurDataURL": "data:image/webp;base64,UklGRi4AAABXRUJQVlA4ICIAAAAwAQCdASoQAAoAA4BaJaQAA3AA/vSsWmU3GQtbnoYOgAAA"
+      "id": "movil",
+      "kind": "mobile",
+      "shots": [
+        {
+          "src": "/ui/climaxpress/movil/01-dashboard-hoy.webp",
+          "alt": "dashboard-hoy",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAACwBACdASoQACMAPt1apE2opSOiNUgBEBuJYwDBzC+6J94Mz0EX1ed4MjJdyxGgAP7qxlQG4I1NB97i90Avu+nKEM8UURtbbYuYKYE9FPvvssKLhVAqv4PYcMC5m3l34P7MPdtVBeq42y7JqaU5Pst1SNhWb8AA"
+        },
+        {
+          "src": "/ui/climaxpress/movil/02-rentas.webp",
+          "alt": "rentas",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAQBACdASoQACMAPu1irE2ppaSiKqwBMB2JZwDA3BfeFKCsdyip+33MAAD+56LR4AUDJa9xG7tNwt6QAhB0/pf1fvPA4TN3AUeCXB4VXqklC4MaKWg3h1SnnuTzrVY2AAA="
+        },
+        {
+          "src": "/ui/climaxpress/movil/03-calendario.webp",
+          "alt": "calendario",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAwCdASoQACMAPu1kq04ppaQiKqwBMB2JZwDKABYe3qBWQMyEfAAA/uf5Krv12t399pOxIJE1X/IMwQQyE6M8iS96r8k1w6pTz3J51qJG7AAA"
+        },
+        {
+          "src": "/ui/climaxpress/movil/04-reportes.webp",
+          "alt": "reportes",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAABQBACdASoQACMAPt1cpU2opSOiNUgBEBuJYgC/WNiD/G987P2Sfma2PrjgAP7rMJZBlwgv57ZbjX84NCd5CtIzTthkOfqi5JYMZlaONWJHxCwnqkApao7usflL41B6GWlMNNIENIhOfmhDy88XoLi+cnMklZh3Xzl+e/NRfLdFEmSHoukgKHIdFDCgLkFK0w1k4NhujP9AalOnx5k/7ERvFAcgAA=="
+        },
+        {
+          "src": "/ui/climaxpress/movil/05-inventario.webp",
+          "alt": "inventario",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACQAwCdASoQACMAPu1mqU6ppaOiKqwBMB2JZwDH5CElfa1JzZYAAP7wTwzV6co+UfaRuVPqTl/rKoqPHjbAhKIRUzquEtcuMkmbwzQezn7DJBY9+e3tjg63yNcv2386a4TVUDA4InOnl6oAAAA="
+        },
+        {
+          "src": "/ui/climaxpress/movil/06-ruta.webp",
+          "alt": "ruta",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAABwAwCdASoQACMAPu1orFEppaQiqqgBMB2JaQC/7BYebTe1WAAA/uei0dgyUHCp/+L2gibid6LRLP8BJP5Fez2WDMMwOI2bwAA="
+        },
+        {
+          "src": "/ui/climaxpress/movil/07-clientes.webp",
+          "alt": "clientes",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADwAwCdASoQACMAPu1qrVCppaQiqqgBMB2JZwDDrBZ220/BawTd41IAAP7n9/DoTMf3lRhfRGIwhKfc05qNIH3xyQJOeyR5nn5FJyo4SsawvgXewx7nXk7A153VjHYnazrAIK3LjeXIJMWhAAA="
+        },
+        {
+          "src": "/ui/climaxpress/movil/08-nueva-renta.webp",
+          "alt": "nueva-renta",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAAAQBACdASoQACMAPu1eqE2ppSQiNVgIATAdiWcAuwAgPzRiSx7rZMrrYAD+8BYdM3buBt+YmWYCXpmeJyX/btOOyiSjYsyl0qXexE6FuDhLHfz+fiCsMrF4e9Dk3a8SgfIo9oVQ9gALQO665WyPy+HdceIUMLrc5cedkT5OTRPCAAAA"
+        }
+      ]
+    }
+  ],
+  "fresa-fit": [
+    {
+      "id": "escritorio",
+      "kind": "desktop",
+      "shots": [
+        {
+          "src": "/ui/fresa-fit/escritorio/01-metricas.webp",
+          "alt": "metricas",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoQAAoAA4BaJYwAAxaTTTj9IAD+9yrO2czEAYWaNBKoWtdtmRMMkv+bSKoN+quOM29GdL/9DMQF/50kAKy1eB25BDbg424AAAA="
+        },
+        {
+          "src": "/ui/fresa-fit/escritorio/02-canales.webp",
+          "alt": "canales",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRiwAAABXRUJQVlA4ICAAAABwAQCdASoQAAoAA4BaJaWVuAGIAAD+9A3cKZmamgAAAA=="
+        },
+        {
+          "src": "/ui/fresa-fit/escritorio/03-inventario.webp",
+          "alt": "inventario",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADQAQCdASoQAAoAA4BaJaQAAp/bqnuQgAD+9i1pqmbhaRXZ08WoNSzfAAA="
+        },
+        {
+          "src": "/ui/fresa-fit/escritorio/04-tareas-calendario.webp",
+          "alt": "tareas-calendario",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAAAwAQCdASoQAAoAA4BaJaQAA3AA/vNVYz/6Sz6ggBhI9R1WhKWLQicAAAA="
+        },
+        {
+          "src": "/ui/fresa-fit/escritorio/05-tareas-tablero.webp",
+          "alt": "tareas-tablero",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAABwAQCdASoQAAoAA4BaJaWM+AGIAAD+81S+sNmH9v/EE64KgAA="
+        },
+        {
+          "src": "/ui/fresa-fit/escritorio/06-tareas-tabla.webp",
+          "alt": "tareas-tabla",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAACwAQCdASoQAAoAA4BaJaQAAuguSkpAAP73JlOm/W5zryOHJAAAAA=="
+        },
+        {
+          "src": "/ui/fresa-fit/escritorio/07-pedidos.webp",
+          "alt": "pedidos",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRi4AAABXRUJQVlA4ICIAAACwAQCdASoQAAoAA4BaJaQAAxf+7LBgAP73Ks04wjmHgAAA"
+        },
+        {
+          "src": "/ui/fresa-fit/escritorio/08-finanzas.webp",
+          "alt": "finanzas",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACQAQCdASoQAAoAA4BaJZwAAuf24WAA/vcqy5fhLcclBET1utfWKJ3r0AABpAAA"
+        },
+        {
+          "src": "/ui/fresa-fit/escritorio/09-clientes.webp",
+          "alt": "clientes",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRi4AAABXRUJQVlA4ICIAAAAwAQCdASoQAAoAA4BaJaQAA3AA/vPUKbDmHkwxkwaXAAAA"
+        },
+        {
+          "src": "/ui/fresa-fit/escritorio/10-bodega.webp",
+          "alt": "bodega",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRioAAABXRUJQVlA4IB4AAAAwAQCdASoQAAoAA4BaJaQAA3AA/vPG+Bo2QpHcgAA="
+        },
+        {
+          "src": "/ui/fresa-fit/escritorio/12-metricas-oscuro.webp",
+          "alt": "metricas-oscuro",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAoAA4BaJZQBTAA+pvWngvhAAP71tWiImMoQu3wrYsHnb1HQezmh/qF2IcGVIIPyHz/sdTWKYp6fS9Dc5rUHufVAAAAA"
+        },
+        {
+          "src": "/ui/fresa-fit/escritorio/13-canales-oscuro.webp",
+          "alt": "canales-oscuro",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAACwAQCdASoQAAoAA4BaJaQAAveDDUAAAP71s9138XLVwKzQAAA="
+        }
+      ]
     },
     {
-      "src": "/ui/cos/cos-gastos.webp",
-      "alt": "cos gastos",
-      "width": 1600,
-      "height": 1010,
-      "blurDataURL": "data:image/webp;base64,UklGRi4AAABXRUJQVlA4ICIAAAAwAQCdASoQAAoAA4BaJaQAA3AA/vQLb1uFGCJBIUr7AAAA"
+      "id": "movil",
+      "kind": "mobile",
+      "shots": [
+        {
+          "src": "/ui/fresa-fit/movil/01-metricas.webp",
+          "alt": "metricas",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAAAQBQCdASoQACMAPuVkpk2pJiOiNVgIASAciWYAy0vAQ4BPIpUrSQZ4VnYk3B2aGJ0kAP7wQYhDw1XX70gP8D1Pf33ckzeu7yIB1VH7xlI7Ghfwb0Jw2oCqrv0NVLXmU6+jI1HMnmCQYxOMYOV9U3ldGlhuxMrRUMFzGv067w3N0o/xNM9sig5siBBJ0gU3pV2PRPd9fyZKXnaUpAAAAA=="
+        },
+        {
+          "src": "/ui/fresa-fit/movil/02-tareas.webp",
+          "alt": "tareas",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAADQAwCdASoQACMAPu1mqE6ppaOiKqwBMB2JZwAAPg001uj8PUk8RYAA/usnSLjproFKkd1Kxvlz40rVjlveyLMFEksxs+6ttGNdni6Ifhjxui7mPmu31VOfaaXE0i2OXTg2wLg0PvZHvniLbcxlEjF6yKIFTrPE8UqKK+AA"
+        },
+        {
+          "src": "/ui/fresa-fit/movil/03-menu.webp",
+          "alt": "menu",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBACdASoQACMAPuVkpk2pJiOiNVgIASAciWcAzNAVc0+/JogbEv5GMYAA/uhp9BZoo8/hPniLeuPbnOdDvaVPiSz+N69CI6grqYzF+TNR8IEhsChzUbGnKAl3+07bdfHMVu9rl5n6TQAA"
+        },
+        {
+          "src": "/ui/fresa-fit/movil/04-canales.webp",
+          "alt": "canales",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQBACdASoQACMAPu1qrlEppaQiqqgBMB2JZwAAPg2JmW+mudV+3s63zg8AAP7rJyZqCAAmdHqmshdvDLKVnU4ziZjAI0L3ZTReEiqCkGue0qWxwC3yaEABIAA="
+        },
+        {
+          "src": "/ui/fresa-fit/movil/05-inventario.webp",
+          "alt": "inventario",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABQAwCdASoQACMAPu1irE2ppaSiKqwBMB2JZQAAPg+RejSggAD+6ydGGzJWafzbzaea7WF3KwRi2mTF3ms92asOQ1avLJio9zWuJwvg3uclY8bQw8GoQY4zcBZCj+UHN9vua8+wcqaQUnFkak4wCAAA"
+        },
+        {
+          "src": "/ui/fresa-fit/movil/06-pedidos.webp",
+          "alt": "pedidos",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACQAwCdASoQACMAPu1qrVCppaQiqqgBMB2JaQAANT8YM2hYT0MQAP7rJ0i47ebx3Bq1WBuTICO55qYBrpxXejnfiOhRnbaE0eo6wkdCNSuFQJvjPPWMy6NTDo8tsuwAAAA="
+        },
+        {
+          "src": "/ui/fresa-fit/movil/07-finanzas.webp",
+          "alt": "finanzas",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAAAwBACdASoQACMAPulep02pJSOiNVgIASAdCUAZdIJrrX/Af/XLNsFgcAAA/usnSLjt5vLK3AYst/JnytpR5isOEbMLfO6TDfdGrmLrV/pjz5caa3QpofD7LjyfQ4OsjLAlJPRMcVlHUzpToAO3yuiWPFAZEU13YT6ckT6btpjiQAAA"
+        },
+        {
+          "src": "/ui/fresa-fit/movil/08-clientes.webp",
+          "alt": "clientes",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADQBACdASoQACMAPu1qrVCppaQiqqgBMB2JZQAANT79Y9cOr5jrtF9emQc/BjvuQAD+6ydIuO3m8srVpKSNoYsk9uXZ1b0iaepAguJ0eyEmWpXtgr7zB4OhRUV9pyChYjSU6Jre3weHqbALm6vg15jGAT/FcXU90s/YP36zHrAAAA=="
+        },
+        {
+          "src": "/ui/fresa-fit/movil/09-bodega.webp",
+          "alt": "bodega",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACQBACdASoQACMAPt1YpE2opSOiNUgBEBuJZQDO7C02ibzORKvH2BUkYmQ1vAAA/u3hcxgD+RbXYa2rYH2r5b2yaxlYRIioXyAe3qaqi61fgX/G6tMyeVrfWLxhqa4lVq5yGqnV0CO0euNAbJ3CQAAA"
+        },
+        {
+          "src": "/ui/fresa-fit/movil/11-metricas-oscuro.webp",
+          "alt": "metricas-oscuro",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAADQBACdASoQACMAPulgqE2pJaQiNVgIASAdCWIAy0w2RjIYFGy/7Y4dyZfjBT7QwAD+8XOYFHXrhWK5RQSK9iXEUFdQK/2xhlzeXUVRW1q2Aj2IosYNzy5Qo4jbAlcQWwMi8lxnU9E2iJBVvyqadooB7cMWYViUQWYoujpztK/uCCu1bm9f6U0M2yyvXJ/RWQk5fEu2oef7dEV4uMkN6eX8gAA="
+        },
+        {
+          "src": "/ui/fresa-fit/movil/12-canales-oscuro.webp",
+          "alt": "canales-oscuro",
+          "width": 720,
+          "height": 1558,
+          "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAwCdASoQACMAPu1qrlCppaQiqqgBMB2JaQAAT9/hmJJgAP7wQfu87u99crGdA23b0cyKm5VU5USI49KEz5Oiq/iHUxHKVDUO4I1bvgUc4GgG9dInyvQj0wjd48QKAAkAAA=="
+        }
+      ]
+    }
+  ],
+  "haaco-pro": [
+    {
+      "id": "escritorio",
+      "kind": "desktop",
+      "shots": [
+        {
+          "src": "/ui/haaco-pro/escritorio/cotizacion-detalle.webp",
+          "alt": "cotizacion-detalle",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoQAAoAA4BaJZQAAp1AnDQDoAD+0q1w8ze3yK6LYChpO2cVab9Fk79xrU7PcErUkNmvHTfAAAA="
+        },
+        {
+          "src": "/ui/haaco-pro/escritorio/cotizaciones.webp",
+          "alt": "cotizaciones",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACwAQCdASoQAAoAA4BaJZQAAsb9E4QAAP7SrXDnUp+pqxNtZRMa9+UqO0X+AAAA"
+        },
+        {
+          "src": "/ui/haaco-pro/escritorio/dinero.webp",
+          "alt": "dinero",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACwAQCdASoQAAoAA4BaJZQAAuQ22qBAAP7SrXDnUp6tQqsTMNZX8PPvY6yEmz2G6FJpRKCNXnXgAA=="
+        },
+        {
+          "src": "/ui/haaco-pro/escritorio/nomina.webp",
+          "alt": "nomina",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACQAQCdASoQAAoAA4BaJZQAAsfyv1gA/tKtcOdSn5oiKNK9SHydNjv3EdgnQfp46b4AAA=="
+        },
+        {
+          "src": "/ui/haaco-pro/escritorio/obra-detalle.webp",
+          "alt": "obra-detalle",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoQAAoAA4BaJZQAAudR6yQAAP7SrXDnUp838RNhprx03wAA"
+        },
+        {
+          "src": "/ui/haaco-pro/escritorio/obras.webp",
+          "alt": "obras",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAoAA4BaJZQAAsaVh/RAAP7SrXDnUp+pqxPbLTEfGYJLx03wAA=="
+        },
+        {
+          "src": "/ui/haaco-pro/escritorio/precios.webp",
+          "alt": "precios",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAoAA4BaJZQAAxf8iGUAAP7Srapo724mC/RwEVNDr3aL/AAAAA=="
+        },
+        {
+          "src": "/ui/haaco-pro/escritorio/reportes.webp",
+          "alt": "reportes",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoQAAoAA4BaJZQAAqFir4ZQAP7SrXDnUp+pT8e3Aljqz0QL1fH2NM9ov8AAAA=="
+        },
+        {
+          "src": "/ui/haaco-pro/escritorio/tablero.webp",
+          "alt": "tablero",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAQCdASoQAAoAA4BaJYwAAsf1hZUAAP7eK0Bt33LjogfWUsuuMBseTe9fPP3NTabYoiR26joUDhB6f40PgAAA"
+        }
+      ]
     },
     {
-      "src": "/ui/cos/cos-inicio.webp",
-      "alt": "cos inicio",
-      "width": 1513,
-      "height": 948,
-      "blurDataURL": "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAABwAQCdASoQAAoAA4BaJaV9qAGIAAD+9HF64AdBEVpKLAF5sAA="
+      "id": "movil",
+      "kind": "mobile",
+      "shots": [
+        {
+          "src": "/ui/haaco-pro/movil/cotizacion-detalle.webp",
+          "alt": "cotizacion-detalle",
+          "width": 720,
+          "height": 1561,
+          "blurDataURL": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAACQBACdASoQACMAPu1op0+ppiMiKqwBMB2JYwDKAEYb+BA6hjW8H1OVZE6FnYAA/vcXMPu6RwYgK+7xn5qyidZmRNTGLEbi1GRyF2aySRYP9Qq+Q7Me16TO8ecgErCwqzje8Cl+V1EL/OaVHs9lS9ITH/Mkw4uEqsCbfycT9ggPOVb6sx9gu9eP39OiiiUqCf/oZvJFCJafAAAA"
+        },
+        {
+          "src": "/ui/haaco-pro/movil/cotizaciones.webp",
+          "alt": "cotizaciones",
+          "width": 720,
+          "height": 1561,
+          "blurDataURL": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAABQBACdASoQACMAPu1kqU6ppaOiKqwBMB2JZwABQE/qlV5DURvzBNR9WyLAAP76yjacZU+wQz7oPqDAgeg1Qkd7hMXbgTmx0SqCwaxdqA4c5WweFsnBG+OgPlWOBH1SdFP1DECZMXQaxNaO/Y3mFDgsBAA="
+        },
+        {
+          "src": "/ui/haaco-pro/movil/dinero.webp",
+          "alt": "dinero",
+          "width": 720,
+          "height": 1561,
+          "blurDataURL": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAADQBACdASoQACMAPu1kq04ppaQiKqwBMB2JQBlYAl4Ds4m+QskSmanx51lwNMO+AAD+6ujkK91RqoxzumxKywORB9ZYI0kO6DymhkX8K3p8MPObDxYFdgtf5HCCTuIYh8cvSz03j6FeNXzLu2oix7BILMYus+k9GPNMZvQHY//n+L/q10MOGfYT0Ftn22huDrxK+uMrNTpL90CPzxwG0uWAAAA="
+        },
+        {
+          "src": "/ui/haaco-pro/movil/nomina.webp",
+          "alt": "nomina",
+          "width": 720,
+          "height": 1561,
+          "blurDataURL": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAACwBACdASoQACMAPu1mqE8ppaOiKqwBMB2JYwBVJ4/4CiFi+dllXqVaV8R4WpKYAP7qql0bbgZWBgMsRIT5zRw4Io3t/PDI6hLH66ueyQ87NB1GCuTEny0zTT/PvoGo+1fJqLbA/LP0Jok+rFAHCYxUCvb65NC01eJr5T5tJY2jmghkbTUXGifZ3FuedtwdeJXys8IAJAKdZ0AA"
+        },
+        {
+          "src": "/ui/haaco-pro/movil/obra-detalle.webp",
+          "alt": "obra-detalle",
+          "width": 720,
+          "height": 1561,
+          "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQBACdASoQACMAPu1srVCppiQiqqgBMB2JZwAAPg8x5Isrfu7cADuMAAD+7Y0+rjyAvG7BLaqLCiBSf0M+/2B7WQt1+rDHXv6+RHdN+hnE8ei3pPbGR9nA1X4ym+Ufok+HMDIiH4AJOgSAAAA="
+        },
+        {
+          "src": "/ui/haaco-pro/movil/obras.webp",
+          "alt": "obras",
+          "width": 720,
+          "height": 1561,
+          "blurDataURL": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAADwAwCdASoQACMAPtlcpE2oJaOiNUgBABsJZwAAbt0AxyrL8zpIwSoAAP7tcnVrqB6qyHYYTbUIzBp160tae7AsTrFPIFcJ0VzbjBtWl5wYxUwPijkvAEn9emDO/dplU2gPCIG/2OmiQBgZqINW54sAInYAAA=="
+        },
+        {
+          "src": "/ui/haaco-pro/movil/precios.webp",
+          "alt": "precios",
+          "width": 720,
+          "height": 1561,
+          "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACQBACdASoQACMAPu1cqk2ppKQiNVgIATAdiWcAAEJe58/ORUVR0aXzWdiCOsAA/uqm2Ua2kRy+Ipa7Xi5bPaIDGJKavbAcI8CyNygoXSiPKyejNt4Z/Igtf3Wk8AMZ3nWA5WfygOFhYhIAAAA="
+        },
+        {
+          "src": "/ui/haaco-pro/movil/reportes.webp",
+          "alt": "reportes",
+          "width": 720,
+          "height": 1561,
+          "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADwAwCdASoQACMAPt1cpU2opSOiNUgBEBuJZwAAebgEUvEJ8pAPRLaIAP7qqmYa3xkx5uesxigF/1vxeCeWP/Lh4KzFmAiXssm60FUtT3//69YKPLgf6xkerjU+3Ql5/9qs/CUKnTKw8t0JooHsYrZCpB7oS3RaCAA="
+        },
+        {
+          "src": "/ui/haaco-pro/movil/tablero.webp",
+          "alt": "tablero",
+          "width": 720,
+          "height": 1561,
+          "blurDataURL": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAACQBACdASoQACMAPu1kqk6ppaOiKqwBMB2JYwAIEAKJwvONCX49fB4LTDuYBgAA/uqqZgHUlO6vVM6VmQZ6zcxftPK08sWBcrdTHgF64jkuj459GYuY8PZdQfu2IJNPMIG5BeUlJ0Gv/IBNAh3hcOVatQ8pN/07pdG9J6MtRop/60n+q17l3DPHawEQy2Xl9/w3jztbbGYJL5wA"
+        }
+      ]
+    }
+  ],
+  "mlb-totals": [
+    {
+      "id": "escritorio",
+      "kind": "desktop",
+      "shots": [
+        {
+          "src": "/ui/mlb-totals/escritorio/01-dashboard.webp",
+          "alt": "dashboard",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoQAAoAA4BaJZwAAud9qwKAAP72lSEB9KcD2yw3kcZODqsr+z/2jMbLlsuAToAA"
+        },
+        {
+          "src": "/ui/mlb-totals/escritorio/02-slate.webp",
+          "alt": "slate",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAACwAQCdASoQAAoAA4BaJaQAAudF0boAAP72lRaWGWHUB8e6OAA="
+        },
+        {
+          "src": "/ui/mlb-totals/escritorio/03-juego-detalle.webp",
+          "alt": "juego-detalle",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRiwAAABXRUJQVlA4ICAAAABQAQCdASoQAAoAA4BaJZwABAAAAP7zOYD29/TiEhgAAA=="
+        },
+        {
+          "src": "/ui/mlb-totals/escritorio/04-historial.webp",
+          "alt": "historial",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRiwAAABXRUJQVlA4ICAAAABQAQCdASoQAAoAA4BaJaQABAAAAP7z6sagftyCl6jgAA=="
+        },
+        {
+          "src": "/ui/mlb-totals/escritorio/05-equipos.webp",
+          "alt": "equipos",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRigAAABXRUJQVlA4IBwAAAAwAQCdASoQAAoAA4BaJaQAA3AA/vN1UeHMQCgA"
+        },
+        {
+          "src": "/ui/mlb-totals/escritorio/07-jarvis.webp",
+          "alt": "jarvis",
+          "width": 1600,
+          "height": 1000,
+          "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAoAA4BaJQAAXOv4TMYgAP73fYXwC7wSGrwL04f0HycHVgAAAA=="
+        }
+      ]
     },
     {
-      "src": "/ui/cos/pdf-cotizacion.webp",
-      "alt": "pdf cotizacion",
-      "width": 1600,
-      "height": 1033,
-      "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoQAAoAA4BaJaQAAv+9hlXUoAD+5kzZ1baeOqKZnogWr43Kc0Mqo/x7A++rIqkwampfpd6sDo5b8AAA"
+      "id": "movil",
+      "kind": "mobile",
+      "shots": [
+        {
+          "src": "/ui/mlb-totals/movil/01-dashboard.webp",
+          "alt": "dashboard",
+          "width": 720,
+          "height": 1207,
+          "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQAwCdASoQABsAPu1iqk2ppaQiMAgBMB2JaQAAewNjZwLwAAD+8EEIxH3h4dmPDt01gPiP14z/qROmiIpHYQpOiFbpQmq7zV45wP/8oxtnQaS4ZBvseBNGuJjMAA=="
+        },
+        {
+          "src": "/ui/mlb-totals/movil/02-slate.webp",
+          "alt": "slate",
+          "width": 720,
+          "height": 1207,
+          "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADQAwCdASoQABsAPu1iqk2ppaQiMAgBMB2JZwAAUpNB7+9aWf4L/AAA/u7wKItVpdZH1x2xOdtY1rnAxtC/qGB7rp/INynxGPSKEM99IqSpQyam/JF1JCsdHU05T+iFEusAAA=="
+        },
+        {
+          "src": "/ui/mlb-totals/movil/03-juego-detalle.webp",
+          "alt": "juego-detalle",
+          "width": 720,
+          "height": 1207,
+          "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACQAwCdASoQABsAPu1iqk2ppaQiMAgBMB2JZ12AVpAU/4inKQAAAP7wWUlhh+2AA8AEfkbo5GGzFZpZi46HfjjjUX+zklXy4MVFN5b2K+V1QNCOuQfiAAAA"
+        },
+        {
+          "src": "/ui/mlb-totals/movil/04-historial.webp",
+          "alt": "historial",
+          "width": 720,
+          "height": 1207,
+          "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAABQAwCdASoQABsAPu1iqk4ppaQiMAgBMB2JaQDG9C0FCCjOAAD+8EH5vgZP7XfpPFhGgTTasO701w+3cp7vEVunfbCHL8GoCsIrnSAFqv1ky8RAAAA="
+        },
+        {
+          "src": "/ui/mlb-totals/movil/05-equipos.webp",
+          "alt": "equipos",
+          "width": 720,
+          "height": 1207,
+          "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABwAwCdASoQABsAPu1iqU2ppaQiMAgBMB2JaVefWIeTiZDloQAA/vBA9qxBVanWUtU43edYWCizM9UQK83v/c8oJXCAKp0WEbrbQfROKj9SBcJ4Kiq+XkAA"
+        },
+        {
+          "src": "/ui/mlb-totals/movil/06-shea-brief.webp",
+          "alt": "shea-brief",
+          "width": 720,
+          "height": 1207,
+          "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAABwAwCdASoQABsAPu1iqU2ppaQiMAgBMB2JZwDDNDBdrytaoAAA/vBBCMQp0rGVlzR2tmpBxN9PmiFFhUDUxMdhNH1LsM7kdSLw94PvtO3AWSjAAAA="
+        },
+        {
+          "src": "/ui/mlb-totals/movil/07-jarvis.webp",
+          "alt": "jarvis",
+          "width": 720,
+          "height": 1207,
+          "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABQAwCdASoQABsAPu1iqU2ppaOiMAgBMB2JQAAMP8xIUYslAAD+7sNI5fB33c5sZohdqHaA7mCBN27m34vfhvqf+JenE0uJkzrvXn8fUj8eu9tzRLdVqMAA"
+        }
+      ]
     }
   ]
 }
