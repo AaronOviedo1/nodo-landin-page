@@ -19,6 +19,8 @@
   --color-oxido: #d0451b;
 
   --font-display: var(--font-archivo), sans-serif;
+  /* Montserrat sostiene todo lo que no es titular: cuerpo y etiquetas. */
+  --font-body: var(--font-montserrat), sans-serif;
   --font-label: var(--font-montserrat), sans-serif;
 
   --ease-nodo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -131,24 +133,27 @@
   }
 
   .nodo-p1 {
-    font-family: var(--font-display);
-    font-variation-settings: "wdth" 100, "wght" 400;
-    font-size: clamp(1rem, 1.4vw, 1.125rem);
-    line-height: 1.6;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: clamp(0.9375rem, 1.3vw, 1.0625rem);
+    line-height: 1.65;
+    letter-spacing: -0.005em;
   }
 
   .nodo-p2 {
-    font-family: var(--font-display);
-    font-variation-settings: "wdth" 100, "wght" 400;
-    font-size: 1rem;
-    line-height: 1.6;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    letter-spacing: -0.005em;
   }
 
   .nodo-p3 {
-    font-family: var(--font-display);
-    font-variation-settings: "wdth" 100, "wght" 400;
-    font-size: 0.875rem;
-    line-height: 1.5;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    letter-spacing: 0;
     color: var(--color-humo);
   }
 
