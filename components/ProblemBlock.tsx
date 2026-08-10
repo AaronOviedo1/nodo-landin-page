@@ -23,13 +23,17 @@ export default function ProblemBlock() {
         </Reveal>
       </div>
 
-      <ul className="mt-20 grid border-t border-acero sm:grid-cols-2 lg:grid-cols-4">
+      {/* Dos columnas, no cuatro: los textos son argumentos, no etiquetas, y en
+          una banda de cuatro quedaban en tiras de doscientos píxeles. Las reglas
+          de borde no dependen de cuántos dolores haya: si el último cae solo en
+          su fila, ocupa el ancho completo y pierde el borde derecho. */}
+      <ul className="mt-20 grid border-t border-acero md:grid-cols-2">
         {t.problem.pains.map((pain, i) => (
           <Reveal
             as="li"
             key={pain.title}
             delay={0.06 * i}
-            className="group relative border-b border-acero p-7 transition-colors duration-500 hover:bg-concreto sm:[&:nth-child(odd)]:border-r lg:border-r lg:last:border-r-0 lg:[&:nth-child(odd)]:border-r"
+            className="group relative border-b border-acero p-7 transition-colors duration-500 hover:bg-concreto md:p-9 md:[&:nth-child(odd):not(:last-child)]:border-r md:[&:nth-child(odd):last-child]:col-span-2"
           >
             <span className="nodo-m1 text-humo/55 transition-colors duration-500 group-hover:text-senal">
               {String(i + 1).padStart(2, '0')}

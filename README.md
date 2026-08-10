@@ -90,6 +90,42 @@ Reglas de presentación, todas automáticas:
 - Con más de 8 capturas los puntos se sustituyen por una barra de avance y un
   contador.
 
+## Confidencialidad de las capturas
+
+Las apps de Fresa Fit y HAACO muestran datos reales de sus negocios: importes de
+ingresos y egresos, márgenes por obra y nombres de clientes. Nada de eso puede
+publicarse. Antes de procesar las capturas:
+
+```bash
+node scripts/redact-shots.mjs   # ui/ → ui-redactado/
+node scripts/process-ui.mjs     # publica desde ui-redactado/ cuando existe
+```
+
+`REDACTION` en el script decide, por proyecto:
+
+- **`include`** — lista blanca. Lo que no aparece ahí no se copia y por tanto no
+  llega al sitio. Los módulos que *son* dinero (finanzas, nómina, cobranza,
+  reportes, métricas, el listado de obras) quedan fuera enteros: redactados al
+  nivel que exigen no enseñan producto, solo censura.
+- **`ocr`** — `digits` tapa cualquier token con un dígito; `money`, solo los
+  importes. HAACO usa `digits` porque toda su interfaz es dinero; Fresa Fit usa
+  `money` porque sus pantallas de finanzas ya quedaron fuera, y tapar todo dígito
+  pixelaba hasta los días del calendario.
+- **`regions`** — rectángulos en fracciones del ancho y alto para lo que el OCR
+  no sabe clasificar: nombres de personas. Con `fill: true` se rellenan con el
+  color muestreado del fondo en vez de pixelarse, que sobre un panel liso se nota
+  menos.
+
+El OCR corre en varias pasadas sobre su propio resultado y al final vuelve a
+revisar; si algo sobrevive, lo avisa por consola. **Aun así hay que mirar las
+imágenes**: en las pruebas el OCR no detectó dos montos que estaban a la vista,
+y por eso la lista blanca —no el difuminado— es la defensa principal.
+
+`process-ui.mjs` publica desde `ui-redactado/` para cualquier proyecto que tenga
+carpeta ahí, y **descarta** las capturas de `ui/` que no tengan equivalente
+redactado. Al agregar capturas nuevas de estos dos clientes hay que sumarlas a
+`include`, o no se publicarán.
+
 ## Logos de clientes
 
 Los originales llegan en estados incompatibles entre sí —fondos sólidos, arte

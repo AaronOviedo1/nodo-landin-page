@@ -29,24 +29,28 @@ export const copy = {
 
     problem: {
       label: 'El problema',
-      title: 'El cuello de botella no es tu equipo. Es el papel.',
-      body: 'La mayoría de los negocios no fallan por falta de esfuerzo. Fallan porque la información vive en lugares que no se hablan entre sí.',
+      title: 'El cuello de botella no es tu equipo. Son tus herramientas.',
+      body: 'La mayoría de los negocios no fallan por falta de esfuerzo. Fallan porque sostienen a mano lo que el software ya resuelve solo.',
       pains: [
         {
-          title: 'Inventario en tres plataformas',
-          body: 'Vendes en tienda en línea, Mercado Libre y TikTok Shop. Cada venta obliga a actualizar tres lugares a mano y siempre se escapa uno.',
+          title: 'Cotizaciones, gastos e ingresos en Excel',
+          body: 'Excel fue una gran herramienta de 1985 a 2020. Imagina esas mismas hojas dentro de una aplicación que abres y controlas desde el celular, la computadora o la tableta.',
         },
         {
-          title: 'Pagos capturados a mano',
-          body: 'Llegan comprobantes por WhatsApp y alguien los transcribe a una hoja de cálculo. Toma horas y el error se descubre a fin de mes.',
+          title: 'Solo vendes en el mostrador',
+          body: 'El comercio en línea crece alrededor de 18% al año, y ahí nadie te cobra renta. Abrir ese canal casi siempre sorprende por lo que suma a fin de mes.',
         },
         {
-          title: 'Cotizaciones en Excel',
-          body: 'Cada cotización se arma copiando la anterior. Los precios quedan desactualizados y nadie sabe cuál fue la versión que se envió.',
+          title: 'Tu trabajo es ser jefe',
+          body: 'Los dueños de negocio terminamos haciendo de todo. Cuando el sistema se encarga de lo repetitivo, tu tiempo se va a hacer crecer el negocio en vez de mantenerlo.',
         },
         {
-          title: 'Nada es rastreable',
-          body: 'Cuando quieres saber cuánto dejó una obra, un cliente o un mes, hay que reconstruirlo a mano desde cero.',
+          title: 'La inteligencia artificial ya es real',
+          body: 'Aporta muchísimo a un costo relativamente bajo: clasifica, redacta, extrae datos y responde. Dejarla fuera es regalarle la ventaja al de enfrente.',
+        },
+        {
+          title: 'Un empleado nuevo y quince Excels',
+          body: 'Cuando entra alguien, aprender una aplicación toma días. Aprender quince hojas de cálculo, con las mañas de cada una, toma meses.',
         },
       ],
       close: 'Nada de esto se arregla contratando a otra persona. Se arregla con software que ya sepa lo que tu negocio hace.',
@@ -192,24 +196,28 @@ export const copy = {
 
     problem: {
       label: 'The problem',
-      title: 'The bottleneck is not your team. It is the paperwork.',
-      body: 'Most businesses do not fail from lack of effort. They fail because their information lives in places that never talk to each other.',
+      title: 'The bottleneck is not your team. It is your tools.',
+      body: 'Most businesses do not fail from lack of effort. They fail because they hold up by hand what software already handles on its own.',
       pains: [
         {
-          title: 'Inventory across three platforms',
-          body: 'You sell on your own store, Mercado Libre and TikTok Shop. Every sale means updating three places by hand, and one always slips.',
+          title: 'Quotes, expenses and income in Excel',
+          body: 'Excel was a great tool from 1985 to 2020. Picture those same sheets inside an application you open and control from your phone, your computer or a tablet.',
         },
         {
-          title: 'Payments typed in by hand',
-          body: 'Receipts arrive over WhatsApp and someone retypes them into a spreadsheet. It takes hours and mistakes surface at month end.',
+          title: 'You only sell over the counter',
+          body: 'Online commerce grows around 18% a year, and there nobody charges you rent. Opening that channel almost always surprises you at month end.',
         },
         {
-          title: 'Quotes built in Excel',
-          body: 'Every quote is a copy of the last one. Prices go stale and nobody knows which version was actually sent.',
+          title: 'Your job is to run the business',
+          body: 'Owners end up doing everything. Once the system takes over the repetitive work, your time goes into growing the business instead of holding it together.',
         },
         {
-          title: 'Nothing is traceable',
-          body: 'When you want to know what a project, a client or a month actually earned, someone has to rebuild it from scratch.',
+          title: 'Artificial intelligence is already here',
+          body: 'It gives a business a great deal for relatively little: it classifies, drafts, extracts data and answers. Leaving it out hands the advantage to whoever is next door.',
+        },
+        {
+          title: 'A new hire and fifteen spreadsheets',
+          body: 'When someone joins, learning an application takes days. Learning fifteen spreadsheets, each with its own quirks, takes months.',
         },
       ],
       close: 'None of this gets fixed by hiring another person. It gets fixed with software that already knows how your business works.',

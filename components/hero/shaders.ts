@@ -17,6 +17,7 @@ const COMMON = /* glsl */ `
   uniform vec2  uScale;
   uniform vec2  uMouse;
   uniform float uMouseRadius;
+  uniform float uMouseStrength;
 
   /* Deriva browniana barata: sin acumular, solo dos senos desfasados. */
   vec3 drift(vec3 base, float seed) {
@@ -38,11 +39,15 @@ const COMMON = /* glsl */ `
 
     vec3 pos = vec3(norm.xy * uScale, norm.z * 2.0);
 
-    /* El cursor empuja lo que tiene cerca. */
+    /* El cursor empuja lo que tiene cerca y abre un hueco a su alrededor. La
+       caída es (1 - t²)²: llega al borde del radio con pendiente cero, así que
+       no se ve una costura donde termina la influencia. */
     vec2 away = pos.xy - uMouse;
     float dist = length(away);
-    float force = 1.0 - smoothstep(0.0, uMouseRadius, dist);
-    pos.xy += normalize(away + 1e-4) * force * uMouseRadius * 0.28;
+    float t = clamp(dist / uMouseRadius, 0.0, 1.0);
+    float k = 1.0 - t * t;
+    float force = k * k * uMouseStrength;
+    pos.xy += normalize(away + 1e-4) * force * uMouseRadius * 0.42;
 
     return pos;
   }

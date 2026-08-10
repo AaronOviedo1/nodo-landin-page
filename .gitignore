@@ -43,3 +43,6 @@ next-env.d.ts
 # Capturas originales de las apps (pesadas, solo insumo local).
 # Las versiones optimizadas viven en public/ui y sí se versionan.
 /ui
+
+# Capturas redactadas (derivadas de ui/, se regeneran con scripts/redact-shots.mjs)
+/ui-redactado

@@ -16,6 +16,12 @@ import sharp from 'sharp'
 
 const ROOT = process.cwd()
 const SRC = join(ROOT, 'ui')
+/**
+ * Versiones con la información confidencial ya tapada. Si un proyecto aparece
+ * aquí, se publica **solo** lo que exista en esta carpeta: las capturas de
+ * `ui/` que no pasaron el filtro de `redact-shots.mjs` se quedan fuera.
+ */
+const REDACTED = join(ROOT, 'ui-redactado')
 const OUT = join(ROOT, 'public', 'ui')
 const MANIFEST = join(ROOT, 'content', 'shots.generated.json')
 
@@ -113,9 +119,20 @@ async function main() {
     return
   }
 
+  // Proyectos con versión redactada, por el nombre de su carpeta de primer nivel.
+  const redactedRoots = new Set()
+  try {
+    for (const entry of await readdir(REDACTED, { withFileTypes: true })) {
+      if (entry.isDirectory()) redactedRoots.add(entry.name)
+    }
+  } catch {
+    // Sin carpeta de redactadas: se publica ui/ tal cual.
+  }
+
   const files = (await collect(SRC)).sort()
   const groups = new Map()
   let skipped = 0
+  let confidential = 0
 
   for (const file of files) {
     const rel = relative(SRC, file).split(sep).join('/')
@@ -124,9 +141,24 @@ async function main() {
       skipped++
       continue
     }
+
+    let source = file
+    const root = rel.split('/')[0]
+    if (redactedRoots.has(root)) {
+      const redacted = join(REDACTED, rel)
+      try {
+        await stat(redacted)
+        source = redacted
+      } catch {
+        // Descartada por mostrar datos confidenciales: no se publica.
+        confidential++
+        continue
+      }
+    }
+
     const key = `${info.project}::${info.surface}`
     if (!groups.has(key)) groups.set(key, { ...info, files: [] })
-    groups.get(key).files.push(file)
+    groups.get(key).files.push(source)
   }
 
   const manifest = {}
@@ -181,7 +213,10 @@ async function main() {
 
   await mkdir(join(ROOT, 'content'), { recursive: true })
   await writeFile(MANIFEST, `${JSON.stringify(manifest, null, 2)}\n`)
-  console.log(`\nDescartadas ${skipped} (accesos y páginas completas).`)
+  console.log(
+    `\nDescartadas ${skipped} (accesos y páginas completas)` +
+      `${confidential ? ` y ${confidential} por mostrar datos confidenciales` : ''}.`,
+  )
   console.log(`Manifiesto: ${relative(ROOT, MANIFEST)}`)
 }
 

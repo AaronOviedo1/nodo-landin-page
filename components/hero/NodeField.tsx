@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import {
@@ -124,7 +124,7 @@ function Field({
   count: number
   withLines: boolean
 }) {
-  const { viewport, size } = useThree()
+  const { viewport, size, gl } = useThree()
 
   const field = useMemo(
     () => buildField(count, withLines, 260),
@@ -137,7 +137,8 @@ function Field({
       uProgress: { value: 0 },
       uScale: { value: new THREE.Vector2(1, 1) },
       uMouse: { value: new THREE.Vector2(1e4, 1e4) },
-      uMouseRadius: { value: 1.8 },
+      uMouseRadius: { value: 2.2 },
+      uMouseStrength: { value: 0 },
       uSize: { value: 11 },
       uPixelRatio: { value: 1 },
       uColorDim: { value: new THREE.Color('#8a929e') },
@@ -154,6 +155,7 @@ function Field({
       uScale: uniforms.uScale,
       uMouse: uniforms.uMouse,
       uMouseRadius: uniforms.uMouseRadius,
+      uMouseStrength: uniforms.uMouseStrength,
       uColor: { value: new THREE.Color('#39414d') },
     }),
     [uniforms],
@@ -164,6 +166,50 @@ function Field({
   const linesMat = useRef<THREE.ShaderMaterial>(null)
   const mouseTarget = useRef(new THREE.Vector2(1e4, 1e4))
   const elapsed = useRef(0)
+
+  // El puntero se escucha a mano en window: el canvas y su contenedor llevan
+  // pointer-events: none —para no robarle los clics a los CTAs del hero—, así
+  // que los eventos de r3f nunca se disparan y state.pointer se queda en cero.
+  const pointer = useRef({ x: 0, y: 0, active: false })
+  const wasActive = useRef(false)
+  // El rect del canvas se cachea: pedirlo en cada pointermove o en cada frame
+  // fuerza un reflow sincrónico varias veces por segundo.
+  const rect = useRef<DOMRect | null>(null)
+
+  useEffect(() => {
+    const canvas = gl.domElement
+    const measure = () => {
+      rect.current = canvas.getBoundingClientRect()
+    }
+    measure()
+
+    const onMove = (e: PointerEvent) => {
+      // Solo mouse: en táctil el "hover" no existe y el hueco daría saltos.
+      if (e.pointerType !== 'mouse') return
+      pointer.current.x = e.clientX
+      pointer.current.y = e.clientY
+      pointer.current.active = true
+    }
+    const onLeave = () => {
+      pointer.current.active = false
+    }
+
+    window.addEventListener('pointermove', onMove, { passive: true })
+    document.addEventListener('pointerleave', onLeave, { passive: true })
+    window.addEventListener('blur', onLeave, { passive: true })
+    window.addEventListener('resize', measure, { passive: true })
+    // La página usa Lenis, que sí desplaza la ventana de verdad: el rect cambia
+    // con el scroll y hay que volver a medirlo.
+    window.addEventListener('scroll', measure, { passive: true })
+
+    return () => {
+      window.removeEventListener('pointermove', onMove)
+      document.removeEventListener('pointerleave', onLeave)
+      window.removeEventListener('blur', onLeave)
+      window.removeEventListener('resize', measure)
+      window.removeEventListener('scroll', measure)
+    }
+  }, [gl])
 
   useFrame((state, delta) => {
     // Los uniforms se leen del material, no del objeto que se le pasó como
@@ -191,14 +237,44 @@ function Field({
 
     pu.uProgress.value = THREE.MathUtils.damp(pu.uProgress.value, target, 6, delta)
 
-    // El puntero de r3f viene normalizado; se pasa a unidades del mundo.
-    if (state.pointer.x !== 0 || state.pointer.y !== 0) {
+    // En pantallas anchas el titular ocupa la izquierda, así que el campo se
+    // corre hacia la derecha en vez de quedar debajo del texto. El shader
+    // trabaja en el espacio local del grupo, así que el cursor tiene que
+    // descontar ese mismo desplazamiento o el hueco se abre fuera de sitio.
+    const offsetX = size.width >= 1024 ? viewport.width * 0.17 : 0
+    if (group.current) group.current.position.x = offsetX
+
+    // Del puntero en coordenadas de cliente a unidades del mundo.
+    const box = rect.current
+    const active = pointer.current.active && !!box && box.width > 0 && box.height > 0
+    if (active && box) {
+      const ndcX = ((pointer.current.x - box.left) / box.width) * 2 - 1
+      const ndcY = -(((pointer.current.y - box.top) / box.height) * 2 - 1)
       mouseTarget.current.set(
-        (state.pointer.x * viewport.width) / 2,
-        (state.pointer.y * viewport.height) / 2,
+        (ndcX * viewport.width) / 2 - offsetX,
+        (ndcY * viewport.height) / 2,
       )
     }
-    pu.uMouse.value.lerp(mouseTarget.current, 1 - Math.exp(-6 * delta))
+
+    // Al entrar el cursor la posición se copia de golpe, pero solo si el hueco
+    // ya está cerrado: es invisible ahí, y si aún queda algo abierto —el cursor
+    // volvió antes de que se desvaneciera— hay que perseguirlo, no saltar.
+    if (active && !wasActive.current && pu.uMouseStrength.value < 0.02) {
+      pu.uMouse.value.copy(mouseTarget.current)
+    } else if (active) {
+      pu.uMouse.value.lerp(mouseTarget.current, 1 - Math.exp(-6 * delta))
+    }
+    wasActive.current = active
+
+    // El hueco se abre y se cierra con la intensidad, no moviendo el cursor a
+    // lo lejos: así al salir del hero los nodos vuelven en su sitio en vez de
+    // arrastrarse detrás de un puntero que huye.
+    pu.uMouseStrength.value = THREE.MathUtils.damp(
+      pu.uMouseStrength.value,
+      active ? 1 : 0,
+      active ? 9 : 5,
+      delta,
+    )
 
     // Las líneas comparten la misma transformación: si sus uniforms se
     // desincronizan, las conexiones se despegan de sus nodos.
@@ -209,12 +285,7 @@ function Field({
       lu.uScale.value.copy(pu.uScale.value)
       lu.uMouse.value.copy(pu.uMouse.value)
       lu.uMouseRadius.value = pu.uMouseRadius.value
-    }
-
-    // En pantallas anchas el titular ocupa la izquierda, así que el campo se
-    // corre hacia la derecha en vez de quedar debajo del texto.
-    if (group.current) {
-      group.current.position.x = size.width >= 1024 ? viewport.width * 0.17 : 0
+      lu.uMouseStrength.value = pu.uMouseStrength.value
     }
   })
 
