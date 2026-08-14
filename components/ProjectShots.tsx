@@ -97,7 +97,6 @@ function DesktopSurface({
   name,
   paused,
   onZoom,
-  priority,
   compact,
 }: {
   surface: Surface
@@ -105,7 +104,6 @@ function DesktopSurface({
   name: string
   paused: boolean
   onZoom: (shot: Shot) => void
-  priority?: boolean
   compact?: boolean
 }) {
   const { index, select } = useRotation(surface.shots.length, paused)
@@ -141,7 +139,6 @@ function DesktopSurface({
                 src={shot.src}
                 alt={`${name} — ${shot.alt}`}
                 fill
-                priority={priority}
                 placeholder="blur"
                 blurDataURL={shot.blurDataURL}
                 className="object-cover object-top"
@@ -241,12 +238,10 @@ function MobileSurface({
 export default function ProjectShots({
   surfaces,
   name,
-  priority = false,
   layout = 'side',
 }: {
   surfaces: Surface[]
   name: string
-  priority?: boolean
   /**
    * 'side' comparte la fila con el texto; 'wide' ocupa todo el ancho y pone las
    * ventanas de escritorio una junto a otra, para proyectos con varias apps.
@@ -317,7 +312,6 @@ export default function ProjectShots({
                   name={name}
                   paused={paused}
                   onZoom={setZoom}
-                  priority={priority && i === 0}
                   compact={desktop.length > 1}
                 />
               </div>

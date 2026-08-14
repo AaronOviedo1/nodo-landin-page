@@ -47,10 +47,15 @@ copy no hace falta tocar un componente.
 | `content/copy.ts` | Todos los textos de la interfaz, ES y EN |
 | `content/projects.ts` | Los 8 proyectos, sus capacidades y el tratamiento de cada logo |
 | `content/faq.ts` | Preguntas frecuentes |
+| `content/seo.ts` | Títulos, descripciones y palabras clave para buscadores |
 | `content/shots.generated.json` | Generado — no editar a mano |
 
 El número de WhatsApp y el correo están centralizados en `lib/whatsapp.ts`.
 Cambiarlos ahí los cambia en toda la página.
+
+`content/seo.ts` va aparte de `copy.ts` porque obedece a otras reglas: son los
+textos que solo ve Google, con límites de largo propios (título ~60 caracteres,
+descripción ~155) y con la palabra que la gente escribe al buscar.
 
 ## Capturas de las apps
 
@@ -170,7 +175,57 @@ Detalle importante: los uniforms se mutan a través de un `ref` al material
 garantiza conservar esa referencia y mutando el objeto externo los valores nunca
 llegan a la GPU.
 
+## Idiomas y buscadores
+
+Cada idioma es **una página distinta con su propia URL**, no un botón que cambia
+el texto en el navegador:
+
+| URL | Qué sirve |
+|---|---|
+| `/` | Redirección 308 a `/es` |
+| `/es` | Español — la versión por defecto (`x-default`) |
+| `/en` | Inglés |
+
+Antes el idioma vivía en `localStorage`, así que Google solo llegaba a ver el
+español y el inglés no existía para nadie que buscara. Ahora las dos versiones se
+generan en el build, cada una se sirve ya traducida desde el servidor y cada una
+declara a la otra con `hreflang`.
+
+Todo sale de `lib/site.ts`: `LOCALES`, la canónica y el mapa de alternativas.
+Agregar un idioma es sumarlo ahí y traducir `content/`; las rutas, el sitemap y
+las etiquetas `hreflang` se ajustan solos.
+
+Lo que se genera automáticamente:
+
+| Archivo | Qué produce |
+|---|---|
+| `app/[lang]/layout.tsx` | Metadata por idioma: canónica, `hreflang`, Open Graph, iconos |
+| `app/[lang]/opengraph-image.tsx` | La tarjeta de redes, con el titular en el idioma de la página |
+| `app/sitemap.ts` | `sitemap.xml` con las dos URLs y sus alternativas recíprocas |
+| `app/robots.ts` | `robots.txt`. Todo abierto: bloquear `/_next/` impediría a Google pintar la página |
+| `app/manifest.ts` | `manifest.webmanifest` |
+| `lib/structured-data.ts` | JSON-LD: el negocio, el catálogo de servicios, el sitio y las preguntas frecuentes |
+
+Los datos estructurados salen del contenido real de la página —los servicios de
+`copy.ts` y las preguntas de `faq.ts`—, así que traducir o editar un texto los
+actualiza sin tocar nada más.
+
+### Rendimiento
+
+Dos cosas que se ven poco y pesan mucho en la métrica de carga (LCP):
+
+- La entrada del hero es **CSS** (`.entrada` en `globals.css`), no `motion`.
+  Animado con JavaScript, el titular salía del servidor en opacidad cero y el
+  navegador no lo daba por pintado hasta terminar de hidratar.
+- Las capturas de proyectos **no llevan `priority`**. Están muy por debajo del
+  pliegue; precargarlas le robaba ancho de banda al hero.
+
 ## Despliegue
 
 Vercel, desde la rama `main`. La URL canónica se controla con la variable
 `NEXT_PUBLIC_SITE_URL` (ver `lib/site.ts`); afecta metadata, OG, sitemap y robots.
+Sin ella apunta al dominio de producción, `https://nodosoftware.com.mx`.
+
+Para reclamar el sitio en Google Search Console, poner el código en
+`NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` y volver a desplegar: la etiqueta de
+verificación solo se imprime si la variable existe.

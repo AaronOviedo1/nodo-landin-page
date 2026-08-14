@@ -17,6 +17,18 @@ type Capability = {
   withLines: boolean
 }
 
+/**
+ * Variables de la animación de entrada, que vive en CSS (clase `.entrada`).
+ * El desplazamiento va en píxeles y los tiempos en segundos, igual que cuando
+ * lo manejaba `motion`, para que el efecto se vea idéntico.
+ */
+const entrada = ({ y, dur = 0.8, delay = 0 }: { y: number; dur?: number; delay?: number }) =>
+  ({
+    '--entrada-y': `${y}px`,
+    '--entrada-dur': `${dur}s`,
+    '--entrada-delay': `${delay}s`,
+  }) as React.CSSProperties
+
 /** Decide cuánta escena aguanta este dispositivo. */
 function detectCapability(): Capability {
   if (typeof window === 'undefined') return { enabled: false, count: 0, withLines: false }
@@ -130,30 +142,22 @@ export default function Hero() {
         style={{ y: textY, opacity: textOpacity }}
         className="shell relative w-full"
       >
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="nodo-m1 flex items-center gap-3 text-humo"
+        <p
+          style={entrada({ y: 12, dur: 0.7 })}
+          className="entrada nodo-m1 flex items-center gap-3 text-humo"
         >
           <span className="inline-block h-px w-8 bg-acero" />
           {t.hero.eyebrow}
-        </motion.p>
+        </p>
 
         <h1 className="nodo-d1 mt-8 max-w-4xl text-balance">
           {t.hero.title.map((line, i) => (
-            <motion.span
+            <span
               key={line}
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.9,
-                delay: 0.1 + i * 0.09,
-                ease: [0.16, 1, 0.3, 1],
-              }}
+              style={entrada({ y: 28, dur: 0.9, delay: 0.1 + i * 0.09 })}
               // En móvil los saltos fijos parten mal el titular; ahí el texto
               // fluye y el balance del navegador decide dónde cortar.
-              className="max-md:inline md:block"
+              className="entrada max-md:inline md:block"
             >
               {line}
               {i < t.hero.title.length - 1 && <span className="md:hidden"> </span>}
@@ -161,24 +165,20 @@ export default function Hero() {
               {i === t.hero.title.length - 1 && (
                 <span className="ml-2.5 inline-block size-[0.42em] translate-y-[-0.06em] bg-senal align-baseline" />
               )}
-            </motion.span>
+            </span>
           ))}
         </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.42, ease: [0.16, 1, 0.3, 1] }}
-          className="nodo-p1 mt-9 max-w-xl text-humo"
+        <p
+          style={entrada({ y: 16, delay: 0.42 })}
+          className="entrada nodo-p1 mt-9 max-w-xl text-humo"
         >
           {t.hero.body}
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.54, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-12 flex flex-wrap items-center gap-4"
+        <div
+          style={entrada({ y: 16, delay: 0.54 })}
+          className="entrada mt-12 flex flex-wrap items-center gap-4"
         >
           <WhatsAppButton origin="hero" variant="primary" label={t.hero.ctaPrimary} />
           <a
@@ -193,7 +193,7 @@ export default function Hero() {
               ↓
             </span>
           </a>
-        </motion.div>
+        </div>
       </motion.div>
 
       <motion.div

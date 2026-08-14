@@ -132,7 +132,6 @@ export default function ProjectsGrid() {
                 <ProjectShots
                   surfaces={project.surfaces}
                   name={project.name}
-                  priority={i === 0}
                   layout={wide ? 'wide' : 'side'}
                 />
               </div>

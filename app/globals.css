@@ -37,6 +37,23 @@
   }
 }
 
+/* Entrada del hero. Está en CSS y no en JavaScript a propósito: el titular es
+   el elemento más grande de la pantalla, y animándolo con `motion` salía del
+   servidor en opacidad cero, así que el navegador no lo daba por pintado hasta
+   terminar de descargar e hidratar el paquete. Eso hundía la métrica de carga
+   (LCP), que es la que Google mira. En CSS aparece en cuanto llega la hoja de
+   estilos, sin esperar nada más. */
+@keyframes entrada {
+  from {
+    opacity: 0;
+    transform: translateY(var(--entrada-y, 1rem));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* --------------------------------------------------------------------------
    Base
    -------------------------------------------------------------------------- */
@@ -200,6 +217,14 @@
 
   .tabular {
     font-variant-numeric: tabular-nums;
+  }
+
+  /* `both` deja el elemento visible al terminar; con movimiento reducido la
+     regla del final del archivo acorta la animación y el texto queda visible
+     de inmediato, nunca en blanco. */
+  .entrada {
+    animation: entrada var(--entrada-dur, 0.8s) var(--ease-nodo)
+      var(--entrada-delay, 0s) both;
   }
 
   .marquee-mask {
