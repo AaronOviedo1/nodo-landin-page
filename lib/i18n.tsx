@@ -1,17 +1,9 @@
 'use client'
 
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-  type ReactNode,
-} from 'react'
+import { createContext, useCallback, useContext, useMemo, type ReactNode } from 'react'
+import { useRouter } from 'next/navigation'
 import { copy, type Lang } from '@/content/copy'
-
-const STORAGE_KEY = 'nodo-lang'
+import { localePath } from './site'
 
 type LanguageContextValue = {
   lang: Lang
@@ -22,26 +14,31 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null)
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  // Arranca en español: todos los clientes son mexicanos. El inglés es traducción.
-  const [lang, setLangState] = useState<Lang>('es')
+/**
+ * El idioma lo manda la URL, no el estado del cliente. Antes vivía en
+ * localStorage, lo que dejaba una sola página para los dos idiomas y hacía que
+ * Google solo viera el español; ahora `/es` y `/en` son páginas distintas y
+ * cada una se sirve ya traducida desde el servidor.
+ */
+export function LanguageProvider({
+  lang,
+  children,
+}: {
+  lang: Lang
+  children: ReactNode
+}) {
+  const router = useRouter()
 
-  // Solo se respeta una elección explícita previa. El idioma del navegador no
-  // decide: la página abre en español siempre, y el inglés queda para quien lo
-  // pida con el toggle.
-  useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY)
-    if (stored === 'es' || stored === 'en') setLangState(stored)
-  }, [])
-
-  useEffect(() => {
-    document.documentElement.lang = lang
-  }, [lang])
-
-  const setLang = useCallback((next: Lang) => {
-    setLangState(next)
-    window.localStorage.setItem(STORAGE_KEY, next)
-  }, [])
+  // Cambiar de idioma es navegar. Se conserva la sección en la que iba el
+  // visitante para no devolverlo al inicio de la página.
+  const setLang = useCallback(
+    (next: Lang) => {
+      if (next === lang) return
+      const hash = typeof window === 'undefined' ? '' : window.location.hash
+      router.push(`${localePath(next)}${hash}`)
+    },
+    [lang, router],
+  )
 
   const value = useMemo<LanguageContextValue>(
     () => ({

@@ -1,9 +1,15 @@
 'use client'
 
+import Link from 'next/link'
 import { useLang } from '@/lib/i18n'
+import { HREFLANG, localePath, LOCALES } from '@/lib/site'
 
+/**
+ * Enlaces de verdad, no botones: así el rastreador encuentra la otra versión
+ * del sitio siguiendo la página, sin depender solo del sitemap.
+ */
 export default function LanguageToggle({ className = '' }: { className?: string }) {
-  const { lang, setLang } = useLang()
+  const { lang } = useLang()
 
   return (
     <div
@@ -11,18 +17,18 @@ export default function LanguageToggle({ className = '' }: { className?: string 
       role="group"
       aria-label="Idioma / Language"
     >
-      {(['es', 'en'] as const).map((code) => (
-        <button
+      {LOCALES.map((code) => (
+        <Link
           key={code}
-          type="button"
-          onClick={() => setLang(code)}
-          aria-pressed={lang === code}
+          href={localePath(code)}
+          hrefLang={HREFLANG[code]}
+          aria-current={lang === code ? 'true' : undefined}
           className={`px-2.5 py-1.5 transition-colors duration-200 ${
             lang === code ? 'bg-cal text-grafito' : 'text-humo hover:text-cal'
           }`}
         >
           {code.toUpperCase()}
-        </button>
+        </Link>
       ))}
     </div>
   )
