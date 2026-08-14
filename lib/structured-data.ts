@@ -5,10 +5,12 @@ import { EMAIL, WHATSAPP_DISPLAY, WHATSAPP_NUMBER } from './whatsapp'
 import { HREFLANG, localeUrl, SITE_URL } from './site'
 
 /**
- * Perfiles públicos del negocio. Google los usa para confirmar que la ficha y
- * la marca son la misma entidad, así que en cuanto existan las redes van aquí.
+ * Perfiles públicos del negocio. Google los usa para confirmar que la ficha de
+ * empresa, las redes y este sitio son la misma entidad, así que cada perfil
+ * nuevo se suma aquí. Falta la ficha de Google Business, que se agrega cuando
+ * termine de verificarse.
  */
-export const SOCIAL_LINKS: string[] = []
+export const SOCIAL_LINKS: string[] = ['https://www.instagram.com/nodo.inc/']
 
 const ORG_ID = `${SITE_URL}#organizacion`
 const SITE_ID = `${SITE_URL}#sitio`
