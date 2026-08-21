@@ -46,3 +46,13 @@ next-env.d.ts
 
 # Capturas redactadas (derivadas de ui/, se regeneran con scripts/redact-shots.mjs)
 /ui-redactado
+
+# Ajustes del editor y del agente: preferencias de cada máquina.
+/.vscode
+/.claude
+
+# Capturas sin optimizar que se cuelan en la carpeta de salida.
+# public/ui la genera scripts/process-ui.mjs y solo debe llevar WebP.
+/public/ui/**/*.jpeg
+/public/ui/**/*.jpg
+/public/ui/**/*.png

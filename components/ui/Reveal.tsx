@@ -34,7 +34,7 @@ export default function Reveal({
       className={className}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: '-80px' }}
+      viewport={{ once: true, margin: '-80px 0px' }}
       custom={delay}
       variants={variants}
     >

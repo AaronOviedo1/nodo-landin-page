@@ -8,7 +8,11 @@ import Reveal from './ui/Reveal'
 
 function Counter({ to }: { to: number }) {
   const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
+  // El margen solo se recorta arriba y abajo. Con `-80px` en los cuatro lados
+  // también se encogen los costados, y en pantallas angostas el número —que es
+  // estrecho y va pegado al margen izquierdo— queda fuera del área observada:
+  // nunca entra en vista y el contador se queda clavado en 0.
+  const inView = useInView(ref, { once: true, margin: '-80px 0px' })
 
   useEffect(() => {
     const node = ref.current
