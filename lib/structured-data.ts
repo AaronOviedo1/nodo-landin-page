@@ -7,10 +7,16 @@ import { HREFLANG, localeUrl, SITE_URL } from './site'
 /**
  * Perfiles públicos del negocio. Google los usa para confirmar que la ficha de
  * empresa, las redes y este sitio son la misma entidad, así que cada perfil
- * nuevo se suma aquí. Falta la ficha de Google Business, que se agrega cuando
- * termine de verificarse.
+ * nuevo se suma aquí.
+ *
+ * La ficha va con su enlace de compartir de Maps, no con el que sale al
+ * compartir desde la búsqueda: ese último arrastra parámetros de la sesión de
+ * quien lo copió y deja de resolver.
  */
-export const SOCIAL_LINKS: string[] = ['https://www.instagram.com/nodo.inc/']
+export const SOCIAL_LINKS: string[] = [
+  'https://www.instagram.com/nodo.inc/',
+  'https://maps.app.goo.gl/DGoTEBcnNSPGtRBP9',
+]
 
 const ORG_ID = `${SITE_URL}#organizacion`
 const SITE_ID = `${SITE_URL}#sitio`
