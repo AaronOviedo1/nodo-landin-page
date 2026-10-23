@@ -20,6 +20,7 @@ export const SOCIAL_LINKS: string[] = [
 
 const ORG_ID = `${SITE_URL}#organizacion`
 const SITE_ID = `${SITE_URL}#sitio`
+const ALTERNATE_NAMES = ['Nodo Software', 'nodo software', 'nodosoftware.com.mx']
 
 /**
  * Un solo bloque JSON-LD por página, con las entidades enlazadas por `@id`.
@@ -34,6 +35,9 @@ export function structuredData(lang: Lang) {
     '@type': 'ProfessionalService',
     '@id': ORG_ID,
     name: 'nodo.',
+    // Así nos buscan: «nodo.» solo no le dice a Google que somos la respuesta
+    // a «nodo software», y hay varios negocios más que se llaman Nodo.
+    alternateName: ALTERNATE_NAMES,
     legalName: 'nodo.',
     description: seo[lang].business,
     url,
@@ -90,6 +94,7 @@ export function structuredData(lang: Lang) {
     '@id': SITE_ID,
     url,
     name: 'nodo.',
+    alternateName: ALTERNATE_NAMES,
     description: seo[lang].description,
     inLanguage: HREFLANG[lang],
     publisher: { '@id': ORG_ID },

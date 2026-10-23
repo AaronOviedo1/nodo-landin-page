@@ -5,6 +5,8 @@ import type { Lang } from './copy'
  * obedecen a otras reglas: el título pelea por un lugar en los resultados y
  * necesita la palabra que la gente escribe («software a la medida») junto a la
  * ciudad; el copy de la página, en cambio, ya tiene al visitante adentro.
+ * El título además dice «Nodo Software», que es como nos buscan por nombre:
+ * con «nodo.» solo, la búsqueda se la lleva cualquier otro Nodo.
  *
  * Largos que respetan lo que Google alcanza a mostrar: título hasta ~60
  * caracteres, descripción hasta ~155.
@@ -23,11 +25,11 @@ type Seo = {
 
 export const seo: Record<Lang, Seo> = {
   es: {
-    title: 'Software a la medida en Hermosillo, Sonora — nodo.',
+    title: 'Software a la medida en Hermosillo, Sonora — Nodo Software',
     titleTemplate: '%s · nodo.',
     description:
       'Desarrollamos aplicaciones web, apps móviles y automatización con inteligencia artificial para negocios de Hermosillo y todo México. Diagnóstico sin costo.',
-    ogTitle: 'nodo. — Software a la medida',
+    ogTitle: 'Nodo Software — Software a la medida',
     ogDescription:
       'Tu operación no necesita más gente. Necesita mejor software. Aplicaciones a la medida e IA para negocios que ya funcionan.',
     ogAlt: 'nodo. — Software a la medida en Hermosillo, Sonora',
@@ -48,11 +50,11 @@ export const seo: Record<Lang, Seo> = {
   },
 
   en: {
-    title: 'Custom Software Development in Hermosillo, Mexico — nodo.',
+    title: 'Custom Software in Hermosillo, Mexico — Nodo Software',
     titleTemplate: '%s · nodo.',
     description:
       'We build custom web applications, mobile apps and AI automation for businesses in Hermosillo and across Mexico. The initial operations audit is free.',
-    ogTitle: 'nodo. — Custom software',
+    ogTitle: 'Nodo Software — Custom software',
     ogDescription:
       'Your operation does not need more people. It needs better software. Custom applications and AI for businesses that already work.',
     ogAlt: 'nodo. — Custom software development in Hermosillo, Mexico',
