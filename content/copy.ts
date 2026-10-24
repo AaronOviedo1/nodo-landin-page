@@ -165,6 +165,8 @@ export const copy = {
       rights: 'Todos los derechos reservados.',
       sections: 'Secciones',
       contact: 'Contacto',
+      privacy: 'Aviso de privacidad',
+      home: 'Volver al inicio',
     },
   },
 
@@ -332,6 +334,8 @@ export const copy = {
       rights: 'All rights reserved.',
       sections: 'Sections',
       contact: 'Contact',
+      privacy: 'Privacy notice',
+      home: 'Back to home',
     },
   },
 } as const

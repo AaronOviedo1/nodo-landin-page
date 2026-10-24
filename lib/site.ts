@@ -19,7 +19,13 @@ export const isLang = (value: string): value is Lang =>
 /** Ruta de la portada en un idioma. Un solo lugar por si algún día hay más páginas. */
 export const localePath = (lang: Lang) => `/${lang}`
 
-export const localeUrl = (lang: Lang) => `${SITE_URL}${localePath(lang)}`
+/** Subruta del aviso de privacidad; la misma en los dos idiomas. */
+export const PRIVACY_SUBPATH = '/privacidad'
+
+export const privacyPath = (lang: Lang) => `${localePath(lang)}${PRIVACY_SUBPATH}`
+
+export const localeUrl = (lang: Lang, subpath = '') =>
+  `${SITE_URL}${localePath(lang)}${subpath}`
 
 /**
  * Etiquetas de idioma completas. Google las quiere en formato BCP 47: el
@@ -41,7 +47,7 @@ export const OG_LOCALE: Record<Lang, string> = {
  * Mapa de alternativas para `alternates.languages`. `x-default` apunta al
  * español: es lo que ve quien llega sin un idioma que coincida.
  */
-export const languageAlternates = () => ({
-  ...Object.fromEntries(LOCALES.map((l) => [HREFLANG[l], localeUrl(l)])),
-  'x-default': localeUrl(DEFAULT_LOCALE),
+export const languageAlternates = (subpath = '') => ({
+  ...Object.fromEntries(LOCALES.map((l) => [HREFLANG[l], localeUrl(l, subpath)])),
+  'x-default': localeUrl(DEFAULT_LOCALE, subpath),
 })

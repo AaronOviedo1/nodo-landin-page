@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { languageAlternates, localeUrl, LOCALES } from '@/lib/site'
+import { languageAlternates, localeUrl, LOCALES, PRIVACY_SUBPATH } from '@/lib/site'
 
 /**
  * Una entrada por idioma, y cada una declarando a la otra. Repetir las
@@ -9,11 +9,21 @@ import { languageAlternates, localeUrl, LOCALES } from '@/lib/site'
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date()
 
-  return LOCALES.map((lang) => ({
+  const home = LOCALES.map((lang) => ({
     url: localeUrl(lang),
     lastModified,
-    changeFrequency: 'monthly',
+    changeFrequency: 'monthly' as const,
     priority: 1,
     alternates: { languages: languageAlternates() },
   }))
+
+  const privacy = LOCALES.map((lang) => ({
+    url: localeUrl(lang, PRIVACY_SUBPATH),
+    lastModified,
+    changeFrequency: 'yearly' as const,
+    priority: 0.2,
+    alternates: { languages: languageAlternates(PRIVACY_SUBPATH) },
+  }))
+
+  return [...home, ...privacy]
 }

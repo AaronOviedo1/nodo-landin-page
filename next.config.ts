@@ -1,5 +1,5 @@
 import type { NextConfig } from 'next'
-import { DEFAULT_LOCALE, localePath } from './lib/site'
+import { DEFAULT_LOCALE, localePath, PRIVACY_SUBPATH, privacyPath } from './lib/site'
 
 const nextConfig: NextConfig = {
   /**
@@ -12,6 +12,12 @@ const nextConfig: NextConfig = {
       {
         source: '/',
         destination: localePath(DEFAULT_LOCALE),
+        permanent: true,
+      },
+      // La dirección corta del aviso, la que se pega en Meta y en los contratos.
+      {
+        source: PRIVACY_SUBPATH,
+        destination: privacyPath(DEFAULT_LOCALE),
         permanent: true,
       },
     ]

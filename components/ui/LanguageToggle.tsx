@@ -8,7 +8,14 @@ import { HREFLANG, localePath, LOCALES } from '@/lib/site'
  * Enlaces de verdad, no botones: así el rastreador encuentra la otra versión
  * del sitio siguiendo la página, sin depender solo del sitemap.
  */
-export default function LanguageToggle({ className = '' }: { className?: string }) {
+export default function LanguageToggle({
+  className = '',
+  subpath = '',
+}: {
+  className?: string
+  /** Para quedarse en la misma página al cambiar de idioma, no volver a la portada. */
+  subpath?: string
+}) {
   const { lang } = useLang()
 
   return (
@@ -20,7 +27,7 @@ export default function LanguageToggle({ className = '' }: { className?: string 
       {LOCALES.map((code) => (
         <Link
           key={code}
-          href={localePath(code)}
+          href={`${localePath(code)}${subpath}`}
           hrefLang={HREFLANG[code]}
           aria-current={lang === code ? 'true' : undefined}
           className={`px-2.5 py-1.5 transition-colors duration-200 ${

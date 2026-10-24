@@ -1,10 +1,15 @@
 'use client'
 
 import { useLang } from '@/lib/i18n'
+import { privacyPath } from '@/lib/site'
 import { EMAIL, WHATSAPP_DISPLAY, whatsappUrl } from '@/lib/whatsapp'
 import Wordmark from './ui/Wordmark'
 
-export default function Footer() {
+/**
+ * `anchorBase` va vacío en la portada para que las anclas sigan pasando por
+ * Lenis; en las demás páginas apunta a la portada del idioma.
+ */
+export default function Footer({ anchorBase = '' }: { anchorBase?: string }) {
   const { lang, t } = useLang()
   const year = new Date().getFullYear()
 
@@ -23,7 +28,7 @@ export default function Footer() {
             {t.nav.links.map((link) => (
               <li key={link.href}>
                 <a
-                  href={link.href}
+                  href={`${anchorBase}${link.href}`}
                   className="nodo-p2 text-humo transition-colors hover:text-cal"
                 >
                   {link.label}
@@ -62,7 +67,15 @@ export default function Footer() {
         <p className="nodo-m1 text-humo">
           © {year} nodo. {t.footer.rights}
         </p>
-        <p className="nodo-m1 text-humo">Hecho en Hermosillo</p>
+        <div className="flex flex-col gap-3 sm:flex-row sm:gap-8">
+          <a
+            href={privacyPath(lang)}
+            className="nodo-m1 text-humo transition-colors hover:text-cal"
+          >
+            {t.footer.privacy}
+          </a>
+          <p className="nodo-m1 text-humo">Hecho en Hermosillo</p>
+        </div>
       </div>
     </footer>
   )
