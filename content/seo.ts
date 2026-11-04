@@ -21,6 +21,8 @@ type Seo = {
   keywords: string[]
   /** Descripción del negocio para los datos estructurados. */
   business: string
+  /** Título y descripción de /proyectos. El título pasa por `titleTemplate`. */
+  projects: { title: string; description: string }
 }
 
 export const seo: Record<Lang, Seo> = {
@@ -47,6 +49,11 @@ export const seo: Record<Lang, Seo> = {
     ],
     business:
       'Estudio de software a la medida en Hermosillo, Sonora. Construimos aplicaciones web y móviles e integramos inteligencia artificial para ordenar la operación de negocios que ya funcionan.',
+    projects: {
+      title: 'Proyectos de software a la medida',
+      description:
+        'Apps que ya operan negocios en Sonora: renta de andamios, talleres, constructoras, ganaderas, servicios a domicilio y tiendas en línea. Mira cómo se ven.',
+    },
   },
 
   en: {
@@ -72,5 +79,10 @@ export const seo: Record<Lang, Seo> = {
     ],
     business:
       'Custom software studio based in Hermosillo, Sonora, Mexico. We build web and mobile applications and integrate artificial intelligence to streamline the operations of businesses that already work.',
+    projects: {
+      title: 'Custom software projects',
+      description:
+        'Apps already running businesses in Sonora, Mexico: equipment rental, repair shops, construction, ranching, home services and online stores. See them.',
+    },
   },
 }

@@ -75,7 +75,7 @@ export const copy = {
         },
         {
           title: 'Integraciones',
-          body: 'Tiendanube, Mercado Libre, TikTok Shop, WhatsApp, Google Maps. Que las plataformas que ya usas se hablen entre sí.',
+          body: 'Tiendanube, Mercado Libre, TikTok Shop, Stripe, WhatsApp, Gmail, Google Maps y facturación CFDI. Que las plataformas que ya usas se hablen entre sí.',
         },
         {
           title: 'Automatización con IA',
@@ -98,7 +98,9 @@ export const copy = {
       viewShots: 'Ver capturas',
       capabilities: 'Incluye',
       shotsPending: 'Capturas en camino',
+      viewAll: 'Ver todos los proyectos',
       surfaces: {
+        sitio: 'Sitio público',
         tienda: 'Tienda en línea',
         admin: 'Panel administrativo',
         escritorio: 'Escritorio',
@@ -106,13 +108,18 @@ export const copy = {
       },
     },
 
+    projectsPage: {
+      title: 'Todo lo que hemos construido',
+      body: 'Sistemas en operación para constructoras, talleres, ganaderas, rentas, comercio y fundaciones. Cada uno hecho a la medida de cómo trabaja ese negocio.',
+    },
+
     stats: {
       label: 'En números',
       items: [
-        { value: 8, suffix: '', label: 'Proyectos construidos' },
-        { value: 6, suffix: '', label: 'Negocios operando' },
+        { value: 13, suffix: '', label: 'Proyectos construidos' },
+        { value: 11, suffix: '', label: 'Negocios operando' },
         { value: 3, suffix: '', label: 'Plataformas de venta integradas' },
-        { value: 2, suffix: '', label: 'Aplicaciones móviles' },
+        { value: 7, suffix: '', label: 'Aplicaciones móviles' },
       ],
     },
 
@@ -244,7 +251,7 @@ export const copy = {
         },
         {
           title: 'Integrations',
-          body: 'Tiendanube, Mercado Libre, TikTok Shop, WhatsApp, Google Maps. Making the platforms you already use talk to each other.',
+          body: 'Tiendanube, Mercado Libre, TikTok Shop, Stripe, WhatsApp, Gmail, Google Maps and CFDI e-invoicing. Making the platforms you already use talk to each other.',
         },
         {
           title: 'AI automation',
@@ -267,7 +274,9 @@ export const copy = {
       viewShots: 'View screens',
       capabilities: 'Includes',
       shotsPending: 'Screens coming soon',
+      viewAll: 'See all projects',
       surfaces: {
+        sitio: 'Public site',
         tienda: 'Online store',
         admin: 'Admin dashboard',
         escritorio: 'Desktop',
@@ -275,13 +284,18 @@ export const copy = {
       },
     },
 
+    projectsPage: {
+      title: 'Everything we have built',
+      body: 'Systems running today for construction companies, workshops, ranches, rentals, retail and nonprofits. Each one built around how that business actually works.',
+    },
+
     stats: {
       label: 'By the numbers',
       items: [
-        { value: 8, suffix: '', label: 'Projects built' },
-        { value: 6, suffix: '', label: 'Businesses running' },
+        { value: 13, suffix: '', label: 'Projects built' },
+        { value: 11, suffix: '', label: 'Businesses running' },
         { value: 3, suffix: '', label: 'Sales platforms integrated' },
-        { value: 2, suffix: '', label: 'Mobile applications' },
+        { value: 7, suffix: '', label: 'Mobile applications' },
       ],
     },
 
