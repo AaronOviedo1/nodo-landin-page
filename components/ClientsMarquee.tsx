@@ -5,7 +5,8 @@ import { projects } from '@/content/projects'
 import ClientLogo from './ClientLogo'
 
 // Solo los que tienen archivo de logo: el marquee es prueba social, no catálogo.
-const logos = projects.filter((p) => p.logo)
+// Por lo mismo, lo que sigue en desarrollo no cuenta como negocio operando.
+const logos = projects.filter((p) => p.logo && p.status !== 'development')
 
 export default function ClientsMarquee() {
   const { t } = useLang()

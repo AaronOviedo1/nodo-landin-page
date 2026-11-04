@@ -73,6 +73,56 @@ const JOBS = [
     // convierte en canal alfa y el resultado se tiñe de Cal.
     luminanceToAlpha: true,
   },
+  {
+    src: 'cota100 blanco.png',
+    out: 'cota100.png',
+    // Versión en blanco que el cliente usaba sobre su azul; ya es transparente
+    // y la línea de cota naranja se lee bien sobre Grafito.
+    removeBackground: false,
+    lightenDark: false,
+    maxWidth: 900,
+  },
+  {
+    src: 'morbar crema.png',
+    out: 'morbar.png',
+    // Ganadera Morbar trae su propia versión crema para fondos oscuros.
+    removeBackground: false,
+    lightenDark: false,
+    maxWidth: 900,
+  },
+  {
+    src: 'mac horizontal.png',
+    out: 'mac-construcciones.png',
+    // El carbón del isotipo y del lema se pierde; el rojo se queda.
+    removeBackground: false,
+    lightenDark: true,
+    maxWidth: 900,
+  },
+  {
+    src: 'figueroa.png',
+    out: 'figueroa.png',
+    // El azul rey aguanta; el lema en marino es lo que se aclara.
+    removeBackground: false,
+    lightenDark: true,
+    maxWidth: 900,
+  },
+  {
+    src: 'pipe sos.png',
+    out: 'pipe-sos.png',
+    // Letras blancas con sombra negra: tal cual.
+    removeBackground: false,
+    lightenDark: false,
+    maxWidth: 900,
+  },
+  {
+    src: 'lizzy.png',
+    out: 'lizzy.png',
+    // El logotipo verde de la app móvil. El del diamante trae letras blancas
+    // con contorno negro, pensadas para fondo blanco, y aquí se deshacen.
+    removeBackground: false,
+    lightenDark: false,
+    maxWidth: 900,
+  },
 ]
 
 const clamp01 = (v) => Math.min(1, Math.max(0, v))
@@ -177,8 +227,15 @@ async function normalize(job) {
   }
 
   const dest = join(OUT, job.out)
-  await sharp(data, { raw: { width, height, channels } })
+  // Se recorta primero en su propio buffer: sharp aplica el resize antes que
+  // el trim dentro de una misma cadena.
+  const trimmed = await sharp(data, { raw: { width, height, channels } })
     .trim({ threshold: 1 }) // recorta el vacío que deja el fondo eliminado
+    .png()
+    .toBuffer()
+  // Algunos originales llegan a 7,000 px; en pantalla nunca pasan de ~200.
+  await sharp(trimmed)
+    .resize(job.maxWidth ? { width: job.maxWidth, withoutEnlargement: true } : undefined)
     .png({ compressionLevel: 9 })
     .toFile(dest)
 

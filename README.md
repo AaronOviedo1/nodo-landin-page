@@ -45,7 +45,7 @@ copy no hace falta tocar un componente.
 | Archivo | Qué contiene |
 |---|---|
 | `content/copy.ts` | Todos los textos de la interfaz, ES y EN |
-| `content/projects.ts` | Los 8 proyectos, sus capacidades y el tratamiento de cada logo |
+| `content/projects.ts` | Los 13 proyectos, sus capacidades, el tratamiento de cada logo y cuáles van en la portada (`featured`) |
 | `content/faq.ts` | Preguntas frecuentes |
 | `content/seo.ts` | Títulos, descripciones y palabras clave para buscadores |
 | `content/shots.generated.json` | Generado — no editar a mano |
@@ -85,6 +85,10 @@ superficie están en `content/copy.ts` bajo `projects.surfaces`, en ambos idioma
 
 Reglas de presentación, todas automáticas:
 
+- La portada solo destaca los proyectos con `featured: true` en
+  `content/projects.ts`; el resto va a la reja compacta, con un enlace a
+  `/es/proyectos` (y `/en/proyectos`), que destaca **todos** los que tienen
+  capturas. Mover un proyecto a la portada es cambiar esa bandera.
 - Un proyecto sin capturas cae a la reja compacta; al agregarle capturas se
   promueve solo a destacado.
 - Un proyecto con **más de una** superficie de escritorio se lleva el ancho
@@ -96,6 +100,23 @@ Reglas de presentación, todas automáticas:
   contador.
 
 ## Confidencialidad de las capturas
+
+### Proyectos desde noviembre de 2026: capturas con datos ficticios
+
+COTA100, Figueroa, Ganadera Morbar, MAC Construcciones y Pipe SOS se capturaron
+con cada app corriendo **en local**, nunca contra producción. Como las bases
+locales son copias con datos reales, el procedimiento fue: respaldar los datos
+de `public` (`pg_dump --data-only`), sustituir nombres, teléfonos, obras,
+proveedores y descripciones libres por ficticios, deformar los montos, tomar
+las capturas con Playwright (escritorio 1440 px y celular 390 px) y restaurar
+el respaldo. Las capturas resultantes viven en `ui/<proyecto>/` y entran por la
+lista `roots` de `scripts/process-ui.mjs`; no pasan por `redact-shots.mjs`.
+
+Cosas que la sustitución de datos no cubre y hay que revisar a ojo: textos
+escritos en el código (Figueroa dice «LUMO» en la interfaz; se reemplazó en la
+página al capturar), notas libres con nombres de personas y fotos guardadas.
+
+### Fresa Fit y HAACO
 
 Las apps de Fresa Fit y HAACO muestran datos reales de sus negocios: importes de
 ingresos y egresos, márgenes por obra y nombres de clientes. Nada de eso puede

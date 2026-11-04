@@ -68,7 +68,15 @@ function classify(path) {
     fresafit: 'fresa-fit',
     'hacco construcciones': 'haaco-pro',
     'mlb-totals': 'mlb-totals',
+    // NFL comparte tarjeta con MLB: sus capturas se suman a las mismas
+    // superficies. Van con prefijo `nfl-` para no pisar nombres.
+    'nfl-totals': 'mlb-totals',
     lizzy: 'lizzy',
+    cota100: 'cota100',
+    morbar: 'morbar',
+    mac: 'mac-construcciones',
+    figueroa: 'figueroa',
+    'pipe-sos': 'pipe-sos',
   }
 
   for (const [dir, project] of Object.entries(roots)) {
@@ -76,6 +84,13 @@ function classify(path) {
     const sub = p.slice(dir.length + 1).split('/')[0]
     if (sub === 'movil' || sub === 'mobile') {
       return { project, surface: 'movil', kind: 'mobile' }
+    }
+    // Proyectos con cara pública además del panel, como Pipe SOS.
+    if (sub === 'sitio') {
+      return { project, surface: 'sitio', kind: 'desktop' }
+    }
+    if (sub === 'admin') {
+      return { project, surface: 'admin', kind: 'desktop' }
     }
     if (sub === 'desktop' || sub === 'escritorio') {
       return { project, surface: 'escritorio', kind: 'desktop' }
@@ -88,7 +103,7 @@ function classify(path) {
 }
 
 /** Orden de las superficies dentro de una tarjeta. */
-const SURFACE_ORDER = ['tienda', 'admin', 'escritorio', 'movil']
+const SURFACE_ORDER = ['sitio', 'tienda', 'admin', 'escritorio', 'movil']
 
 const slug = (s) =>
   s

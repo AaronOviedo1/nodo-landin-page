@@ -24,6 +24,11 @@ export const PRIVACY_SUBPATH = '/privacidad'
 
 export const privacyPath = (lang: Lang) => `${localePath(lang)}${PRIVACY_SUBPATH}`
 
+/** Subruta del portafolio completo; la portada solo muestra los destacados. */
+export const PROJECTS_SUBPATH = '/proyectos'
+
+export const projectsPath = (lang: Lang) => `${localePath(lang)}${PROJECTS_SUBPATH}`
+
 export const localeUrl = (lang: Lang, subpath = '') =>
   `${SITE_URL}${localePath(lang)}${subpath}`
 

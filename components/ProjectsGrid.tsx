@@ -1,7 +1,9 @@
 'use client'
 
+import Link from 'next/link'
 import { useLang } from '@/lib/i18n'
 import { projects } from '@/content/projects'
+import { projectsPath } from '@/lib/site'
 import ClientLogo from './ClientLogo'
 import ProjectShots from './ProjectShots'
 import Reveal from './ui/Reveal'
@@ -39,28 +41,40 @@ function VisitLink({ url, label }: { url: string; label: string }) {
   )
 }
 
-export default function ProjectsGrid() {
+/**
+ * `home` es la sección de la portada: solo los marcados `featured` van con
+ * capturas y el resto cae a la reja compacta, con un enlace a /proyectos.
+ * `all` es esa página: todo proyecto con capturas va destacado.
+ */
+export default function ProjectsGrid({ variant = 'home' }: { variant?: 'home' | 'all' }) {
   const { lang, t } = useLang()
+  const all = variant === 'all'
 
   // Los proyectos con capturas se llevan el ancho completo; el resto va compacto.
   // Cuando lleguen más capturas, se promueven solos.
   const hasShots = (p: (typeof projects)[number]) =>
     p.surfaces.some((s) => s.shots.length > 0)
-  const featured = projects.filter(hasShots)
-  const compact = projects.filter((p) => !hasShots(p))
+  const isFeatured = (p: (typeof projects)[number]) =>
+    hasShots(p) && (all || p.featured === true)
+  const featured = projects.filter(isFeatured)
+  const compact = projects.filter((p) => !isFeatured(p))
+
+  const Heading = all ? 'h1' : 'h2'
+  const title = all ? t.projectsPage.title : t.projects.title
+  const body = all ? t.projectsPage.body : t.projects.body
 
   return (
-    <section id="proyectos" className="shell py-24 md:py-36">
+    <section id="proyectos" className={`shell ${all ? 'py-16 md:py-24' : 'py-24 md:py-36'}`}>
       <Reveal>
         <SectionLabel>{t.projects.label}</SectionLabel>
       </Reveal>
 
       <div className="mt-10 grid gap-x-16 gap-y-8 lg:grid-cols-12">
         <Reveal className="lg:col-span-7" delay={0.05}>
-          <h2 className="nodo-d2 text-balance">{t.projects.title}</h2>
+          <Heading className="nodo-d2 text-balance">{title}</Heading>
         </Reveal>
         <Reveal className="lg:col-span-5 lg:pt-3" delay={0.12}>
-          <p className="nodo-p1 max-w-md text-humo">{t.projects.body}</p>
+          <p className="nodo-p1 max-w-md text-humo">{body}</p>
         </Reveal>
       </div>
 
@@ -204,6 +218,23 @@ export default function ProjectsGrid() {
           </Reveal>
         ))}
       </div>
+
+      {!all && (
+        <Reveal className="mt-12 flex justify-end">
+          <Link
+            href={projectsPath(lang)}
+            className="nodo-m1 group/link inline-flex items-center gap-2 text-cal transition-colors hover:text-senal"
+          >
+            {t.projects.viewAll}
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-300 ease-[var(--ease-nodo)] group-hover/link:translate-x-1"
+            >
+              →
+            </span>
+          </Link>
+        </Reveal>
+      )}
     </section>
   )
 }
