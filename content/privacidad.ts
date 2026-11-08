@@ -44,7 +44,7 @@ export const privacidad: Record<Lang, PrivacyNotice> = {
     description:
       'Cómo nodo. recaba, usa y protege los datos personales que nos compartes por nuestros formularios, WhatsApp, correo y este sitio.',
     updatedLabel: 'Última actualización',
-    updated: '23 de octubre de 2026',
+    updated: '24 de octubre de 2026',
     intro:
       'Este aviso explica qué datos personales recabamos cuando te pones en contacto con nosotros, para qué los usamos y cómo puedes ejercer tus derechos sobre ellos. Al compartirnos tus datos por cualquiera de los medios que se describen aquí, aceptas que los tratemos conforme a este aviso.',
     sections: [
@@ -147,7 +147,7 @@ export const privacidad: Record<Lang, PrivacyNotice> = {
     description:
       'How nodo. collects, uses and protects the personal data you share with us through our forms, WhatsApp, email and this website.',
     updatedLabel: 'Last updated',
-    updated: 'October 23, 2026',
+    updated: 'October 24, 2026',
     note: 'This is a translation for convenience. The Spanish version is the one that governs.',
     intro:
       'This notice explains what personal data we collect when you get in touch with us, what we use it for and how you can exercise your rights over it. By sharing your data with us through any of the channels described here, you agree to its processing under this notice.',
