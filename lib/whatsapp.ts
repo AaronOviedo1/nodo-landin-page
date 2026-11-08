@@ -1,8 +1,8 @@
 import type { Lang } from '@/content/copy'
 
 /** Único lugar donde vive el número. Cambiarlo aquí lo cambia en toda la página. */
-export const WHATSAPP_NUMBER = '526621498888'
-export const WHATSAPP_DISPLAY = '+52 662 149 8888'
+export const WHATSAPP_NUMBER = '526624026089'
+export const WHATSAPP_DISPLAY = '+52 662 402 6089'
 export const EMAIL = 'hola@nodosoftware.com.mx'
 
 /** De dónde salió el clic, para saber qué sección convierte. */
