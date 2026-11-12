@@ -119,8 +119,8 @@ export const projects: Project[] = [
     year: '2026',
     featured: true,
     summary: {
-      es: 'Cuatro constructoras en una sola app: presupuesto contra subcontrato, gastos que se llenan solos con la foto del ticket, cobranza, reparto por socio y PDFs con la hoja membretada de cada empresa.',
-      en: 'Four construction companies in one app: budget against subcontracts, expenses filled in from a photo of the receipt, collections, partner payouts and PDFs on each company’s letterhead.',
+      es: 'Constructoras en una sola app: presupuesto contra subcontrato, gastos que se llenan solos con la foto del ticket, cobranza, reparto por socio y PDFs con la hoja membretada de cada empresa.',
+      en: 'Construction companies in one app: budget against subcontracts, expenses filled in from a photo of the receipt, collections, partner payouts and PDFs on each company’s letterhead.',
     },
     capabilities: {
       es: ['Varias empresas', 'Gastos con IA', 'Utilidad por obra', 'App para iPhone'],
